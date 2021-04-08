@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-
-namespace TravelAgencyBusinessLogic.BindingModels
+namespace TravelAgencyListImplement.Models
 {
-    public class PlaceBindingModel
+    public class Place
     {
         public int Id { get; set; }
 
@@ -14,6 +13,6 @@ namespace TravelAgencyBusinessLogic.BindingModels
         public Dictionary<int,int> Trips { get; set; }
 
         public int GroupId { get; set; }
-       
+
     }
 }

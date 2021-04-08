@@ -13,7 +13,7 @@ namespace TravelAgencyBusinessLogic.ViewModels
         [DisplayName("Адрес")]
         public string Adress { get; set; }
 
-        public List<TripViewModel> Trips { get; set; }
+        public Dictionary<int,int> Trips { get; set; }
 
         public int GroupId { get; set; }
        

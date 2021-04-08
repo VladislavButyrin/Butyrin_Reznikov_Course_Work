@@ -7,7 +7,7 @@ namespace TravelAgencyBusinessLogic.ViewModels
     {
         public int Id { get; set; }
 
-        public Dictionary<int, string> Tours { get; set; }
+        public Dictionary<int, (int,string)> Tours { get; set; }
        
     }
 }

@@ -19,7 +19,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                 .Select(rec => new TourViewModel
                 {
                     Id = rec.Id,
-                    TourName = rec.TourName
+                    Name = rec.TourName
                 })
                .ToList();
             }
@@ -37,7 +37,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                .Select(rec => new TourViewModel
                {
                    Id = rec.Id,
-                   TourName = rec.TourName
+                   Name = rec.TourName
                })
                 .ToList();
             }
@@ -57,7 +57,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                 new TourViewModel
                 {
                     Id = tour.Id,
-                    TourName = tour.TourName
+                    Name = tour.TourName
                 } :
                null;
             }

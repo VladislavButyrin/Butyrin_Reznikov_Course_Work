@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 
 
-
-namespace TravelAgencyBusinessLogic.BindingModels
+namespace TravelAgencyListImplement.Models
 {
-    public class TourBindingModel
+    public class Tour
     {
-        public int? Id { get; set; }
-
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public string PlaceOfResidence { get; set; }
@@ -16,6 +14,5 @@ namespace TravelAgencyBusinessLogic.BindingModels
         public string PlaceOfDeparture { get; set; }
 
         public DateTime DateOfDeparture { get; set; }
-
     }
 }

@@ -11,5 +11,7 @@ namespace TravelAgencyBusinessLogic.BindingModels
 
         public int PeopleQuantity { get; set; }
 
+        public Dictionary<int, string> Tourists { set; get; }
+
     }
 }

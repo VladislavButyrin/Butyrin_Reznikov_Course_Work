@@ -6,7 +6,10 @@ namespace TravelAgencyListImplement.Models
     {
         public int Id { get; set; }
 
-        public Dictionary<int, int> Tours { get; set; }
+        public string GroupName { set; get; }
 
+        public Dictionary<int, string> Tours { get; set; }
+
+        public Dictionary<int, string> Tourists { set; get; }
     }
 }

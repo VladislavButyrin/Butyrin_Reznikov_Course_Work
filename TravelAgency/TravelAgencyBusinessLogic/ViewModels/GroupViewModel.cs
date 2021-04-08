@@ -10,5 +10,6 @@ namespace TravelAgencyBusinessLogic.ViewModels
 
         public Dictionary<int, string> Tours { get; set; }
 
+        public Dictionary<int, string> Tourists { set; get; }
     }
 }

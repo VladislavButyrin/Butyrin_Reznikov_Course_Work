@@ -7,7 +7,7 @@ namespace TravelAgencyListImplement.Models
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string ExcursionName { get; set; }
 
         //public string Place { get; set; }
 
@@ -15,7 +15,7 @@ namespace TravelAgencyListImplement.Models
 
         public int GuideId { get; set; }
 
-        public Dictionary<int, int> Tours { get; set; }
+        public Dictionary<int, string> Tours { get; set; }
 
     }
 }

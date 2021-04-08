@@ -34,7 +34,7 @@ namespace TravelAgencyListImplements.Implements
             List<PlaceViewModel> result = new List<PlaceViewModel>();
             foreach (var place in source.Places)
             {
-                if (place.Name.Contains(model.Name))
+                if (place.PlaceName.Contains(model.Name))
                 {
                     result.Add(CreateModel(place));
                 }
@@ -49,7 +49,7 @@ namespace TravelAgencyListImplements.Implements
             }
             foreach (var place in source.Places)
             {
-                if (place.Id == model.Id || place.Name ==
+                if (place.Id == model.Id || place.PlaceName ==
                model.Name)
                 {
                     return CreateModel(place);
@@ -100,7 +100,7 @@ namespace TravelAgencyListImplements.Implements
         }
         private Place CreateModel(PlaceBindingModel model, Place place)
         {
-            place.Name = model.Name;
+            place.PlaceName = model.Name;
             place.GroupId = model.GroupId;
             place.Adress = model.Adress;
             // удаляем убранные
@@ -138,7 +138,7 @@ namespace TravelAgencyListImplements.Implements
                 {
                     if (db.Key == tour.Id)
                     {
-                        tourName = tour.Name;
+                        tourName = tour.TourName;
                         break;
                     }
                 }
@@ -147,7 +147,7 @@ namespace TravelAgencyListImplements.Implements
             return new PlaceViewModel
             {
                 Id = place.Id,
-                Name = place.Name,
+                Name = place.PlaceName,
                 Adress = place.Adress,
                 GroupId = place.GroupId,
                 Trips = place.Trips

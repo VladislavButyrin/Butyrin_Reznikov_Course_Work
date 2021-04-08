@@ -33,7 +33,7 @@ namespace TravelAgencyListImplement.Implements
             List<TourViewModel> result = new List<TourViewModel>();
             foreach (var tour in source.Tours)
             {
-                if (tour.Name.Contains(model.Name))
+                if (tour.TourName.Contains(model.TourName))
                 {
                     result.Add(CreateModel(tour));
                 }
@@ -48,8 +48,8 @@ namespace TravelAgencyListImplement.Implements
             }
             foreach (var tour in source.Tours)
             {
-                if (tour.Id == model.Id || tour.Name ==
-               model.Name)
+                if (tour.Id == model.Id || tour.TourName ==
+               model.TourName)
                 {
                     return CreateModel(tour);
                 }
@@ -99,7 +99,7 @@ namespace TravelAgencyListImplement.Implements
         }
         private Tour CreateModel(TourBindingModel model, Tour tour)
         {
-            tour.Name = model.Name;
+            tour.TourName = model.TourName;
             tour.PlaceOfDeparture = model.PlaceOfDeparture;
             tour.PlaceOfResidence = model.PlaceOfResidence;
             tour.DateOfDeparture = model.DateOfDeparture;
@@ -110,7 +110,7 @@ namespace TravelAgencyListImplement.Implements
             return new TourViewModel
             {
                 Id = tour.Id,
-                Name = tour.Name,
+                TourName = tour.TourName,
                 DateOfDeparture = tour.DateOfDeparture,
                 PlaceOfDeparture = tour.PlaceOfDeparture,
                 PlaceOfResidence = tour.PlaceOfResidence

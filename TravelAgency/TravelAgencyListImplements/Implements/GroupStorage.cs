@@ -113,20 +113,43 @@ namespace TravelAgencyListImplements.Implements
                 if (Group.Tours.ContainsKey(tour.Key))
                 {
                     Group.Tours[tour.Key] =
-                    model.Tours[tour.Key].Item2;
+                    model.Tours[tour.Key];
                 }
                 else
                 {
                     Group.Tours.Add(tour.Key,
-                    model.Tours[tour.Key].Item2);
+                    model.Tours[tour.Key]);
+                }
+            }
+
+
+            foreach (var key in Group.Tourists.Keys.ToList())
+            {
+                if (!model.Tourists.ContainsKey(key))
+                {
+                    Group.Tourists.Remove(key);
+                }
+            }
+            // обновляем существуюущие и добавляем новые
+            foreach (var tourist in model.Tourists)
+            {
+                if (Group.Tourists.ContainsKey(tourist.Key))
+                {
+                    Group.Tourists[tourist.Key] =
+                    model.Tourists[tourist.Key];
+                }
+                else
+                {
+                    Group.Tourists.Add(tourist.Key,
+                    model.Tourists[tourist.Key]);
                 }
             }
             return Group;
         }
         private GroupViewModel CreateModel(Group Group)
         {
-            Dictionary<int, (string, int)> tours = new
-        Dictionary<int, (string, int)>();
+            Dictionary<int, string> tours = new
+        Dictionary<int, string>();
             foreach (var db in Group.Tours)
             {
                 string tourName = string.Empty;
@@ -134,12 +157,31 @@ namespace TravelAgencyListImplements.Implements
                 {
                     if (db.Key == tour.Id)
                     {
-                        tourName = tour.Name;
+                        tourName = tour.TourName;
                         break;
                     }
                 }
-                tours.Add(db.Key, (tourName, db.Value));
+                tours.Add(db.Key, tourName);
             }
+
+            Dictionary<int, string> tourists = new
+        Dictionary<int, string>();
+
+
+            foreach (var db in Group.Tourists)
+            {
+                string touristName = string.Empty;
+                foreach (var tourist in source.Tourists)
+                {
+                    if (db.Key == tourist.Id)
+                    {
+                        touristName = tourist.TouristName;
+                        break;
+                    }
+                }
+                tours.Add(db.Key, touristName);
+            }
+
             return new GroupViewModel
             {
                 Id = Group.Id

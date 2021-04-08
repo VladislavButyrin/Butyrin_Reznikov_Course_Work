@@ -34,7 +34,7 @@ namespace TravelAgencyListImplements.Implements
             List<ExcursionViewModel> result = new List<ExcursionViewModel>();
             foreach (var excursion in source.Excursions)
             {
-                if (excursion.Name.Contains(model.ExcursionName))
+                if (excursion.ExcursionName.Contains(model.ExcursionName))
                 {
                     result.Add(CreateModel(excursion));
                 }
@@ -49,7 +49,7 @@ namespace TravelAgencyListImplements.Implements
             }
             foreach (var excursion in source.Excursions)
             {
-                if (excursion.Id == model.Id || excursion.Name ==
+                if (excursion.Id == model.Id || excursion.ExcursionName ==
                model.ExcursionName)
                 {
                     return CreateModel(excursion);
@@ -100,7 +100,7 @@ namespace TravelAgencyListImplements.Implements
         }
         private Excursion CreateModel(ExcursionBindingModel model, Excursion excursion)
         {
-            excursion.Name = model.ExcursionName;
+            excursion.ExcursionName = model.ExcursionName;
             excursion.Date = model.Date;
             excursion.GuideId = model.GuideId;
             // удаляем убранные
@@ -117,12 +117,12 @@ namespace TravelAgencyListImplements.Implements
                 if (excursion.Tours.ContainsKey(tour.Key))
                 {
                     excursion.Tours[tour.Key] =
-                    model.Tours[tour.Key].Item2;
+                    model.Tours[tour.Key];
                 }
                 else
                 {
                     excursion.Tours.Add(tour.Key,
-                    model.Tours[tour.Key].Item2);
+                    model.Tours[tour.Key]);
                 }
             }
             return excursion;
@@ -138,7 +138,7 @@ namespace TravelAgencyListImplements.Implements
                 {
                     if (db.Key == tour.Id)
                     {
-                        tourName = tour.Name;
+                        tourName = tour.TourName;
                         break;
                     }
                 }
@@ -147,7 +147,7 @@ namespace TravelAgencyListImplements.Implements
             return new ExcursionViewModel
             {
                 Id = excursion.Id,
-                ExcursionName = excursion.Name,
+                ExcursionName = excursion.ExcursionName,
                 Date = excursion.Date,
                 GuideId = excursion.GuideId,
                 Tours = tours

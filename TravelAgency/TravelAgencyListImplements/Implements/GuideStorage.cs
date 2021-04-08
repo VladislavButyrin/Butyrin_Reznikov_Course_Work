@@ -33,7 +33,7 @@ namespace TravelAgencyListImplements.Implements
             List<GuideViewModel> result = new List<GuideViewModel>();
             foreach (var guide in source.Guides)
             {
-                if (guide.Name.Contains(model.Name))
+                if (guide.GuideName.Contains(model.GuideName))
                 {
                     result.Add(CreateModel(guide));
                 }
@@ -48,8 +48,8 @@ namespace TravelAgencyListImplements.Implements
             }
             foreach (var guide in source.Guides)
             {
-                if (guide.Id == model.Id || guide.Name ==
-               model.Name)
+                if (guide.Id == model.Id || guide.GuideName ==
+               model.GuideName)
                 {
                     return CreateModel(guide);
                 }
@@ -99,7 +99,7 @@ namespace TravelAgencyListImplements.Implements
         }
         private Guide CreateModel(GuideBindingModel model, Guide Guide)
         {
-            Guide.Name = model.Name;
+            Guide.GuideName = model.GuideName;
             Guide.TripId = model.TripId;
             return Guide;
         }
@@ -108,7 +108,7 @@ namespace TravelAgencyListImplements.Implements
             return new GuideViewModel
             {
                 Id = guide.Id,
-                Name = guide.Name,
+                GuideName = guide.GuideName,
                 TripId = guide.TripId
             };
         }

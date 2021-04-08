@@ -12,6 +12,8 @@ namespace TravelAgencyListImplement
         public List<Trip> Trips { get; set; }
         public List<Guide> Guides { get; set; }
         public List<Place> Places { get; set; }
+        public List<Tourist> Tourists { get; set; }
+        public List<User> Users { get; set; }
         private DataListSingleton()
         {
             Tours = new List<Tour>();
@@ -20,6 +22,8 @@ namespace TravelAgencyListImplement
             Trips = new List<Trip>();
             Guides = new List<Guide>();
             Places = new List<Place>();
+            Tourists = new List<Tourist>();
+            Users = new List<User>();
         }
         public static DataListSingleton GetInstance()
         {

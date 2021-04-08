@@ -8,6 +8,5 @@ namespace TravelAgencyBusinessLogic.HelperModels
     {
         public string FileName { get; set; }
         public string Title { get; set; }
-
     }
 }

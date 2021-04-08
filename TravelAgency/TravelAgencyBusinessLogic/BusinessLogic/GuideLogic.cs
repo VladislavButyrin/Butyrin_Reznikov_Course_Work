@@ -31,7 +31,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
         {
             var element = _GuideStorage.GetElement(new GuideBindingModel
             {
-                Name = model.Name
+                GuideName = model.GuideName
             });
             if (element != null && element.Id != model.Id)
             {

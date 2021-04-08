@@ -22,8 +22,8 @@
             <Label Margin="10,10" Width="150">
                 Название экскурсии
             </Label>
-            <TextBlock Width="200" Margin="10,10,10,15">
-            </TextBlock>
+            <TextBox Width="200" Margin="10,10,10,15">
+            </TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
@@ -38,14 +38,14 @@
 
         <StackPanel Grid.Row="2" Grid.Column="1">
             <Label HorizontalAlignment="Center" Margin="10,30,10,10">Работа с турами</Label>
-            <Button x:Name="buttonAdd" Margin="10" Height="25" Background="AliceBlue">Добавить</Button>
-            <Button x:Name="buttonUpd" Margin="10" Height="25" Background="AliceBlue">Обновить</Button>
-            <Button x:Name="buttonDel" Margin="10" Height="25" Background="AliceBlue">Удалить</Button>
+            <Button x:Name="buttonAdd" Margin="10" Height="25" Background="AliceBlue" Click="buttonAdd_Click">Добавить</Button>
+            <Button x:Name="buttonUpd" Margin="10" Height="25" Background="AliceBlue" Click="buttonUpd_Click">Обновить</Button>
+            <Button x:Name="buttonDel" Margin="10" Height="25" Background="AliceBlue" Click="buttonDel_Click">Удалить</Button>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="buttonCancel" Margin="10" Height="25" Width="100" Background="AliceBlue">Сохранить</Button>
-            <Button x:Name="buttonSave" Margin="10" Height="25" Width="100" Background="AliceBlue">Отмена</Button>
+            <Button x:Name="buttonCancel" Margin="10" Height="25" Width="100" Background="AliceBlue" Click="buttonCancel_Click">Сохранить</Button>
+            <Button x:Name="buttonSave" Margin="10" Height="25" Width="100" Background="AliceBlue" Click="buttonSave_Click">Отмена</Button>
         </StackPanel>
 
     </Grid>

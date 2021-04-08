@@ -21,5 +21,10 @@ namespace TravelAgencyView
         {
             InitializeComponent();
         }
+
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

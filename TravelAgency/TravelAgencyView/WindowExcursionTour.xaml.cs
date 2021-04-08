@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace TravelAgencyView
 {
     /// <summary>
-    /// Логика взаимодействия для WindowGroup.xaml
+    /// Логика взаимодействия для WindowExcursionGuide.xaml
     /// </summary>
-    public partial class WindowGroup : Window
+    public partial class WindowExcursionTour : Window
     {
-        public WindowGroup()
+        public WindowExcursionTour()
         {
             InitializeComponent();
         }

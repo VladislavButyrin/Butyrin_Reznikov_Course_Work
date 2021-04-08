@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelAgencyView"
         mc:Ignorable="d"
-        Title="Добавление экскурсовода" Height="150" Width="300">
+        Title="Добавление экскурсовода" Height="160" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBlock x:Name="Name" Height="20" Width="100" Margin="10"></TextBlock>
+            <TextBox x:Name="Name" Height="20" Width="100" Margin="10"></TextBox>
             <Label Height="30" Width="200" Margin="10">Введите ФИО экскурсовода</Label>
         </StackPanel>
 
@@ -24,7 +24,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
-            <Button x:Name="buttonSave" Height="25" Width="100" Margin="10">Сохранить</Button>
+            <Button x:Name="buttonSave" Height="25" Width="100" Margin="10" Click="buttonSave_Click">Сохранить</Button>
         </StackPanel>
 
     </Grid>

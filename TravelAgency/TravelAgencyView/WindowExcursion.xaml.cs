@@ -21,5 +21,32 @@ namespace TravelAgencyView
         {
             InitializeComponent();
         }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            WindowExcursionTour window = new WindowExcursionTour();
+            window.ShowDialog();
+        }
+
+        private void buttonUpd_Click(object sender, RoutedEventArgs e)
+        {
+            WindowExcursionTour window = new WindowExcursionTour();
+            window.ShowDialog();
+        }
+
+        private void buttonDel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

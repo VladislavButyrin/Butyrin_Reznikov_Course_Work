@@ -21,7 +21,7 @@ namespace TravelAgencyDatabaseImpement.Implements
                     Id = rec.Id,
                     PlaceName = rec.PlaceName,
                     Adress = rec.Adress,
-                    GroupId = rec.Group.Id,
+                    GroupId = (int)rec.Group.Id,
                     Trips = rec.Trips
                             .ToDictionary(recTrips => recTrips.Id,
                             recTrips => (recTrips.TripName))
@@ -44,7 +44,7 @@ namespace TravelAgencyDatabaseImpement.Implements
                    Id = rec.Id,
                    PlaceName = rec.PlaceName,
                    Adress = rec.Adress,
-                   GroupId = rec.Group.Id,
+                   GroupId = (int)rec.Group.Id,
                    Trips = rec.Trips
                             .ToDictionary(recTrips => recTrips.Id,
                             recTrips => (recTrips.TripName))
@@ -68,7 +68,7 @@ namespace TravelAgencyDatabaseImpement.Implements
                     Id = place.Id,
                     PlaceName = place.PlaceName,
                     Adress = place.Adress,
-                    GroupId = place.Group.Id,
+                    GroupId = (int)place.Group.Id,
                     Trips = place.Trips
                             .ToDictionary(recTrips => recTrips.Id,
                             recTrips => (recTrips.TripName))

@@ -31,7 +31,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
         {
             var element = _TourStorage.GetElement(new TourBindingModel
             {
-                Name = model.Name
+                TourName = model.TourName
             });
             if (element != null && element.Id != model.Id)
             {

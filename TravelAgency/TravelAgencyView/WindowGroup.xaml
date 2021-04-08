@@ -5,24 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelAgencyView"
         mc:Ignorable="d"
-        Title="WindowGroup" Height="100" Width="300">
+        Title="WindowGroup" Height="140" Width="320">
     <Grid>
         <Grid.RowDefinitions>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="160"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Vertical">
-            <TextBlock x:Name="Name" Margin="10">
-
-            </TextBlock>
+            <TextBox x:Name="Name" Margin="10">
+            </TextBox>
+            <TextBox x:Name="Count" Margin="10">
+            </TextBox>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <Label Margin="0,5,0,0" HorizontalAlignment="Center">Выберите тур</Label>
-            <Button x:Name="buttonSave" Margin="5,20,5,5">Сохранить</Button>
+            <Label Margin="0,5,0,0" HorizontalAlignment="Center">Введите имя</Label>
+            <Label Margin="0,15,0,0" HorizontalAlignment="Center">Введите количество людей</Label>
+            <Button x:Name="buttonSave" Margin="5,20,5,5" Click="buttonSave_Click">Сохранить</Button>
         </StackPanel>
         
     </Grid>

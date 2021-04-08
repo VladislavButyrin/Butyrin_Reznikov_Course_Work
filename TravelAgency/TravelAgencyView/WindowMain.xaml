@@ -15,8 +15,10 @@
             <MenuItem Name="Trip" Header="Поездки" Click="Trip_Click"/>
             <MenuItem Name="Guide" Header="Экскурсоводы" Click="Guide_Click"/>
             <MenuItem Name="Place" Header="Места" Click="Place_Click"/>
-            <MenuItem Name="GetList" Header="Получение отчёта" Click="GetList_Click"/>
-            <Separator />
+            <MenuItem Name="GetList" Header="Получение отчёта">
+                <MenuItem Name="GuidePlaceReport" Header="Получение отчёта" Click="GuidePlaceReport_Click"></MenuItem>
+                <MenuItem Name="TourReport" Header="Получение отчёта" Click="TourReport_Click"></MenuItem>
+            </MenuItem>
         </Menu>
 
     </Grid>

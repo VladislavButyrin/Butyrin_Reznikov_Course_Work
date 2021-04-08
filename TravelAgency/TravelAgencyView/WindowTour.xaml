@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBlock x:Name="Name" Height="20" Width="100" Margin="10"></TextBlock>
+            <TextBox x:Name="Name" Height="20" Width="100" Margin="10"></TextBox>
             <Label Height="30" Width="200" Margin="10">Введите название тура</Label>
         </StackPanel>
 
@@ -25,16 +25,16 @@
             <Label Height="30" Width="200" Margin="10">Введите дату</Label>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <TextBlock x:Name="PlaceOfResidence" Height="20" Width="100" Margin="10"></TextBlock>
+            <TextBox x:Name="PlaceOfResidence" Height="20" Width="100" Margin="10"></TextBox>
             <Label Height="30" Width="200" Margin="10">Введите место проживания</Label>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="3">
-            <TextBlock x:Name="PlaceOfDeparture" Height="20" Width="100" Margin="10"></TextBlock>
+            <TextBox x:Name="PlaceOfDeparture" Height="20" Width="100" Margin="10"></TextBox>
             <Label Height="30" Width="200" Margin="10">Введите место вылета</Label>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Right">
-            <Button x:Name="buttonSave" Height="25" Width="100" Margin="10">Сохранить</Button>
+            <Button x:Name="buttonSave" Height="25" Width="100" Margin="10" Click="buttonSave_Click">Сохранить</Button>
         </StackPanel>
     </Grid>
 </Window>

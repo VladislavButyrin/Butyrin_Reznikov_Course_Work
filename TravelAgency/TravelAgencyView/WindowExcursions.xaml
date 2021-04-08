@@ -20,9 +20,9 @@
         </DataGrid>
 
         <StackPanel Grid.Column="1" Orientation="Vertical">
-            <Button x:Name="buttonAdd" Margin="10,10,10,5" Height="25" Background="AliceBlue">Добавить</Button>
-            <Button x:Name="buttonUpd" Margin="10,10,10,5" Height="25" Background="AliceBlue">Изменить</Button>
-            <Button x:Name="buttonDel" Margin="10,10,10,5" Height="25" Background="AliceBlue">Удалить</Button>
+            <Button x:Name="buttonAdd" Margin="10,10,10,5" Height="25" Background="AliceBlue" Click="buttonAdd_Click">Добавить</Button>
+            <Button x:Name="buttonUpd" Margin="10,10,10,5" Height="25" Background="AliceBlue" Click="buttonUpd_Click">Изменить</Button>
+            <Button x:Name="buttonDel" Margin="10,10,10,5" Height="25" Background="AliceBlue" Click="buttonDel_Click">Удалить</Button>
         </StackPanel>
         
     </Grid>

@@ -7,9 +7,9 @@ namespace TravelAgencyBusinessLogic.BindingModels
 {
     public class TourBindingModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
-        public string TourName { get; set; }
+        public string Name { get; set; }
 
         public DateTime DateOfDeparture { get; set; }
 

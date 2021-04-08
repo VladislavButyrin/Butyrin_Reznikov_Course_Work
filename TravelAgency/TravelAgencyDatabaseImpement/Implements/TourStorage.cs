@@ -33,7 +33,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             using (var context = new TravelAgencyDatabase())
             {
                 return context.Tours
-                .Where(rec => rec.TourName.Contains(model.TourName))
+                .Where(rec => rec.TourName.Contains(model.Name))
                .Select(rec => new TourViewModel
                {
                    Id = rec.Id,
@@ -51,7 +51,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             using (var context = new TravelAgencyDatabase())
             {
                 var tour = context.Tours
-                .FirstOrDefault(rec => rec.TourName == model.TourName ||
+                .FirstOrDefault(rec => rec.TourName == model.Name ||
                rec.Id == model.Id);
                 return tour != null ?
                 new TourViewModel
@@ -103,7 +103,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         }
         private Tour CreateModel(TourBindingModel model, Tour tour)
         {
-            tour.TourName = model.TourName;
+            tour.TourName = model.Name;
             return tour;
         }
     }

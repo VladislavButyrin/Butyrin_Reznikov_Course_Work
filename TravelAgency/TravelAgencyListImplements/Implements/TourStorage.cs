@@ -111,9 +111,9 @@ namespace TravelAgencyListImplement.Implements
             {
                 Id = tour.Id,
                 Name = tour.Name,
-                DateOfDeparture=tour.DateOfDeparture,
-                PlaceOfDeparture=tour.PlaceOfDeparture,
-                PlaceOfResidence=tour.PlaceOfResidence
+                DateOfDeparture = tour.DateOfDeparture,
+                PlaceOfDeparture = tour.PlaceOfDeparture,
+                PlaceOfResidence = tour.PlaceOfResidence
             };
         }
     }

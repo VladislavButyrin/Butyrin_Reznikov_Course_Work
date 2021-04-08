@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-
-
-namespace TravelAgencyBusinessLogic.BindingModels
+﻿namespace TravelAgencyBusinessLogic.BindingModels
 {
     public class GuideBindingModel
     {
@@ -10,6 +7,6 @@ namespace TravelAgencyBusinessLogic.BindingModels
         public string Name { get; set; }
 
         public int TripId { get; set; }
-       
+
     }
 }

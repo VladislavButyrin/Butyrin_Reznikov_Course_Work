@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace TravelAgencyDatabaseImplement.Models
@@ -13,8 +10,8 @@ namespace TravelAgencyDatabaseImplement.Models
 
         public string PlaceOfResidence { get; set; }
 
-        public string PlaceOfDeparture { get; set; }    
-        
+        public string PlaceOfDeparture { get; set; }
+
         public DateTime DateOfDeparture { get; set; }
     }
 }

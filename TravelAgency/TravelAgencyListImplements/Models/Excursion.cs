@@ -15,7 +15,7 @@ namespace TravelAgencyListImplement.Models
 
         public int GuideId { get; set; }
 
-        public Dictionary<int,int> Tours { get; set; }
+        public Dictionary<int, int> Tours { get; set; }
 
     }
 }

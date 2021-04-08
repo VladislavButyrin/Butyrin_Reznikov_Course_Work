@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.ViewModels;
 using TravelAgencyListImplement;
@@ -110,7 +109,7 @@ namespace TravelAgencyListImplements.Implements
             {
                 Id = guide.Id,
                 Name = guide.Name,
-                TripId=guide.TripId
+                TripId = guide.TripId
             };
         }
     }

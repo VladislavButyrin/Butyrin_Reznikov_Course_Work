@@ -11,9 +11,9 @@ namespace TravelAgencyBusinessLogic.BindingModels
 
         public string Adress { get; set; }
 
-        public Dictionary<int,int> Trips { get; set; }
+        public Dictionary<int, int> Trips { get; set; }
 
         public int GroupId { get; set; }
-       
+
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TravelAgencyBusinessLogic.BindingModels;
-using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
 using TravelAgencyListImplement;
 using TravelAgencyListImplement.Models;
@@ -151,7 +149,7 @@ namespace TravelAgencyListImplements.Implements
                 Id = excursion.Id,
                 Name = excursion.Name,
                 Date = excursion.Date,
-                GuideId=excursion.GuideId,
+                GuideId = excursion.GuideId,
                 Tours = tours
             };
         }

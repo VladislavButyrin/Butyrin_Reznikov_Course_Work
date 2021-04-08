@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.ViewModels;
 using TravelAgencyListImplement;
@@ -34,7 +33,7 @@ namespace TravelAgencyListImplements.Implements
             List<TripViewModel> result = new List<TripViewModel>();
             foreach (var trip in source.Trips)
             {
-                if (trip.Id==(model.Id))
+                if (trip.Id == (model.Id))
                 {
                     result.Add(CreateModel(trip));
                 }

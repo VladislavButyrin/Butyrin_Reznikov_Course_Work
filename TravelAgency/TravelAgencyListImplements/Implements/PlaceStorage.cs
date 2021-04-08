@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.ViewModels;
 using TravelAgencyListImplement;
@@ -149,9 +148,9 @@ namespace TravelAgencyListImplements.Implements
             {
                 Id = place.Id,
                 Name = place.Name,
-                Adress=place.Adress,
-                GroupId=place.GroupId,
-                Trips=place.Trips
+                Adress = place.Adress,
+                GroupId = place.GroupId,
+                Trips = place.Trips
             };
         }
     }

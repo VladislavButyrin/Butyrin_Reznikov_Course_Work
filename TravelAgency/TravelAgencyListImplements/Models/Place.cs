@@ -10,7 +10,7 @@ namespace TravelAgencyListImplement.Models
 
         public string Adress { get; set; }
 
-        public Dictionary<int,int> Trips { get; set; }
+        public Dictionary<int, int> Trips { get; set; }
 
         public int GroupId { get; set; }
 

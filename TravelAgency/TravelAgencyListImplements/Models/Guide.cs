@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace TravelAgencyListImplement.Models
+﻿namespace TravelAgencyListImplement.Models
 {
     public class Guide
     {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using TravelAgencyBusinessLogic.ViewModels;
+﻿using System.Collections.Generic;
 using TravelAgencyBusinessLogic.BindingModels;
-using System.Text;
+using TravelAgencyBusinessLogic.ViewModels;
 
 namespace TravelAgencyBusinessLogic.Interfaces
 {

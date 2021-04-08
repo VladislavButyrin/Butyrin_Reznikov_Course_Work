@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
@@ -30,7 +29,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
 
         public void CreateOrUpdate(GroupBindingModel model)
         {
-          
+
             if (model.Id.HasValue)
             {
                 _GroupStorage.Update(model);

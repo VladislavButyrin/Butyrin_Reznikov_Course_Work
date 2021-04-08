@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelAgencyDatabaseImplement.Models
 {
@@ -15,6 +13,6 @@ namespace TravelAgencyDatabaseImplement.Models
         public List<Trip> Trips { get; set; }
 
         public Group Group { get; set; }
-       
+
     }
 }

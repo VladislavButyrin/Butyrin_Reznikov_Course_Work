@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelAgencyDatabaseImplement.Models
 {
@@ -11,6 +9,6 @@ namespace TravelAgencyDatabaseImplement.Models
         public List<Tour> Tours { get; set; }
 
         public int PeopleQuantity { get; set; }
-       
+
     }
 }

@@ -1,11 +1,11 @@
-﻿using TravelAgencyBusinessLogic.BindingModels;
-using TravelAgencyBusinessLogic.Interfaces;
-using TravelAgencyBusinessLogic.ViewModels;
-using TravelAgencyDatabaseImplement.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TravelAgencyBusinessLogic.BindingModels;
+using TravelAgencyBusinessLogic.Interfaces;
+using TravelAgencyBusinessLogic.ViewModels;
 using TravelAgencyDatabaseImpement;
+using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.Implements
 {

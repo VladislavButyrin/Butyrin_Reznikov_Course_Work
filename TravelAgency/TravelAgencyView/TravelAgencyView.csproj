@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TravelAgencyDatabaseImpement\TravelAgencyDatabaseImpement.csproj" />
+    <ProjectReference Include="..\TravelAgencyBusinessLogic\TravelAgencyBusinessLogic.csproj" />
+    <ProjectReference Include="..\TravelAgencyListImplements\TravelAgencyListImplements.csproj" />
   </ItemGroup>
 
 </Project>

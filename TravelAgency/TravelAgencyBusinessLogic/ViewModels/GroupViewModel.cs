@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace TravelAgencyBusinessLogic.ViewModels
 {
@@ -7,7 +6,7 @@ namespace TravelAgencyBusinessLogic.ViewModels
     {
         public int Id { get; set; }
 
-        public Dictionary<int, (int,string)> Tours { get; set; }
-       
+        public Dictionary<int, (int, string)> Tours { get; set; }
+
     }
 }

@@ -1,5 +1,5 @@
-﻿using TravelAgencyDatabaseImplement.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImpement
 {

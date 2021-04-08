@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.ViewModels;
 using TravelAgencyListImplement;
@@ -35,7 +34,7 @@ namespace TravelAgencyListImplements.Implements
             List<GroupViewModel> result = new List<GroupViewModel>();
             foreach (var group in source.Groups)
             {
-                if (group.Id==model.Id)
+                if (group.Id == model.Id)
                 {
                     result.Add(CreateModel(group));
                 }
@@ -143,7 +142,7 @@ namespace TravelAgencyListImplements.Implements
             }
             return new GroupViewModel
             {
-                Id=Group.Id
+                Id = Group.Id
             };
         }
     }

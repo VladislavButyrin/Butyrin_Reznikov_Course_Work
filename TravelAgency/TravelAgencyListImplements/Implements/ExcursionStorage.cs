@@ -34,7 +34,7 @@ namespace TravelAgencyListImplements.Implements
             List<ExcursionViewModel> result = new List<ExcursionViewModel>();
             foreach (var excursion in source.Excursions)
             {
-                if (excursion.Name.Contains(model.Name))
+                if (excursion.Name.Contains(model.ExcursionName))
                 {
                     result.Add(CreateModel(excursion));
                 }
@@ -50,7 +50,7 @@ namespace TravelAgencyListImplements.Implements
             foreach (var excursion in source.Excursions)
             {
                 if (excursion.Id == model.Id || excursion.Name ==
-               model.Name)
+               model.ExcursionName)
                 {
                     return CreateModel(excursion);
                 }
@@ -100,7 +100,7 @@ namespace TravelAgencyListImplements.Implements
         }
         private Excursion CreateModel(ExcursionBindingModel model, Excursion excursion)
         {
-            excursion.Name = model.Name;
+            excursion.Name = model.ExcursionName;
             excursion.Date = model.Date;
             excursion.GuideId = model.GuideId;
             // удаляем убранные
@@ -129,8 +129,8 @@ namespace TravelAgencyListImplements.Implements
         }
         private ExcursionViewModel CreateModel(Excursion excursion)
         {
-            Dictionary<int, (string, int)> tours = new
-        Dictionary<int, (string, int)>();
+            Dictionary<int, string> tours = new
+        Dictionary<int, string>();
             foreach (var db in excursion.Tours)
             {
                 string tourName = string.Empty;
@@ -142,12 +142,12 @@ namespace TravelAgencyListImplements.Implements
                         break;
                     }
                 }
-                tours.Add(db.Key, (tourName, db.Value));
+                tours.Add(db.Key, tourName);
             }
             return new ExcursionViewModel
             {
                 Id = excursion.Id,
-                Name = excursion.Name,
+                ExcursionName = excursion.Name,
                 Date = excursion.Date,
                 GuideId = excursion.GuideId,
                 Tours = tours

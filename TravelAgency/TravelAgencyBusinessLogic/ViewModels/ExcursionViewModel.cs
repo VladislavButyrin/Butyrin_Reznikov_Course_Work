@@ -9,14 +9,14 @@ namespace TravelAgencyBusinessLogic.ViewModels
         public int Id { get; set; }
 
         [DisplayName("Название экскурсии")]
-        public string Name { get; set; }
+        public string ExcursionName { get; set; }
 
         [DisplayName("Дата проведения")]
         public DateTime Date { get; set; }
 
         public int GuideId { get; set; }
 
-        public Dictionary<int, (string, int)> Tours { get; set; }
+        public Dictionary<int, string> Tours { get; set; }
 
     }
 }

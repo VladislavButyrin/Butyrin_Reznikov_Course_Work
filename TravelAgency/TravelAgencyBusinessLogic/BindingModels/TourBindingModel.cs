@@ -8,7 +8,7 @@ namespace TravelAgencyBusinessLogic.BindingModels
     {
         public int? Id { get; set; }
 
-        public string Name { get; set; }
+        public string TourName { get; set; }
 
         public string PlaceOfResidence { get; set; }
 

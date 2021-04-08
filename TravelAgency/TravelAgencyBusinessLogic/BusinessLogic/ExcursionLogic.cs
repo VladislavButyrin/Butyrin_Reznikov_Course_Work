@@ -31,7 +31,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
         {
             var element = _ExcursionStorage.GetElement(new ExcursionBindingModel
             {
-                Name = model.Name
+                ExcursionName = model.ExcursionName
             });
             if (element != null && element.Id != model.Id)
             {

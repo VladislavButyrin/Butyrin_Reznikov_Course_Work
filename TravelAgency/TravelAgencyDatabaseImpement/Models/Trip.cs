@@ -6,6 +6,8 @@ namespace TravelAgencyDatabaseImplement.Models
     {
         public int Id { get; set; }
 
+        public string TripName { get; set; }
+
         public DateTime Date { get; set; }
 
     }

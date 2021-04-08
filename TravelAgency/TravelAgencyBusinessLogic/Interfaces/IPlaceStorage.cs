@@ -6,16 +6,16 @@ namespace TravelAgencyBusinessLogic.Interfaces
 {
     public interface IPlaceStorage
     {
-        List<TourViewModel> GetFullList();
+        List<PlaceViewModel> GetFullList();
 
-        List<TourViewModel> GetFilteredList(TourBindingModel model);
+        List<PlaceViewModel> GetFilteredList(PlaceBindingModel model);
 
-        TourViewModel GetElement(TourBindingModel model);
+        PlaceViewModel GetElement(PlaceBindingModel model);
 
-        void Insert(TourBindingModel model);
+        void Insert(PlaceBindingModel model);
 
-        void Update(TourBindingModel model);
+        void Update(PlaceBindingModel model);
 
-        void Delete(TourBindingModel model);
+        void Delete(PlaceBindingModel model);
     }
 }

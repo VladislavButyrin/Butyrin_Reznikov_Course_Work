@@ -4,9 +4,11 @@ namespace TravelAgencyBusinessLogic.ViewModels
 {
     public class GroupViewModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
-        public Dictionary<int, (int, string)> Tours { get; set; }
+        public int PeopleQuantity { get; set; }
+
+        public Dictionary<int, string> Tours { get; set; }
 
     }
 }

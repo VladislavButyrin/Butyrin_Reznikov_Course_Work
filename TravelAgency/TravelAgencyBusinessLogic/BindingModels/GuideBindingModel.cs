@@ -4,7 +4,9 @@
     {
         public int? Id { get; set; }
 
-        public string Name { get; set; }
+        public string GuideName { get; set; }
+
+        public string Passport { get; set; }
 
         public int TripId { get; set; }
 

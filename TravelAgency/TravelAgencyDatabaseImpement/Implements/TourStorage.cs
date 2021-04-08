@@ -19,7 +19,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                 .Select(rec => new TourViewModel
                 {
                     Id = rec.Id,
-                    Name = rec.TourName
+                    TourName = rec.TourName
                 })
                .ToList();
             }
@@ -33,11 +33,11 @@ namespace TravelAgencyDatabaseImplement.Implements
             using (var context = new TravelAgencyDatabase())
             {
                 return context.Tours
-                .Where(rec => rec.TourName.Contains(model.Name))
+                .Where(rec => rec.TourName.Contains(model.TourName))
                .Select(rec => new TourViewModel
                {
                    Id = rec.Id,
-                   Name = rec.TourName
+                   TourName = rec.TourName
                })
                 .ToList();
             }
@@ -51,13 +51,13 @@ namespace TravelAgencyDatabaseImplement.Implements
             using (var context = new TravelAgencyDatabase())
             {
                 var tour = context.Tours
-                .FirstOrDefault(rec => rec.TourName == model.Name ||
+                .FirstOrDefault(rec => rec.TourName == model.TourName ||
                rec.Id == model.Id);
                 return tour != null ?
                 new TourViewModel
                 {
                     Id = tour.Id,
-                    Name = tour.TourName
+                    TourName = tour.TourName
                 } :
                null;
             }
@@ -103,7 +103,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         }
         private Tour CreateModel(TourBindingModel model, Tour tour)
         {
-            tour.TourName = model.Name;
+            tour.TourName = model.TourName;
             return tour;
         }
     }

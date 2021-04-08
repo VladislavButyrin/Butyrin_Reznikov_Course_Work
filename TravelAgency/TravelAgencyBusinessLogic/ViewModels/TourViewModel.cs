@@ -10,7 +10,7 @@ namespace TravelAgencyBusinessLogic.ViewModels
         public int Id { get; set; }
 
         [DisplayName("Название тура")]
-        public string Name { get; set; }
+        public string TourName { get; set; }
 
         [DisplayName("Дата отправления")]
         public DateTime DateOfDeparture { get; set; }

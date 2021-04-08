@@ -7,7 +7,10 @@ namespace TravelAgencyBusinessLogic.ViewModels
         public int Id { get; set; }
 
         [DisplayName("ФИО гида")]
-        public string Name { get; set; }
+        public string GuideName { get; set; }
+
+        [DisplayName("Паспортные данные")]
+        public string Passport { get; set; }
 
         public int TripId { get; set; }
 

@@ -59,5 +59,11 @@ namespace TravelAgencyView
             WindowTourReport window = new WindowTourReport();
             window.ShowDialog();
         }
+
+        private void RegOrAut_Click(object sender, RoutedEventArgs e)
+        {
+            WindowRegOrAut window = new WindowRegOrAut();
+            window.ShowDialog();
+        }
     }
 }

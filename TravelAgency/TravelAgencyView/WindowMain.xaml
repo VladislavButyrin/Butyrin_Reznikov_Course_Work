@@ -19,6 +19,7 @@
                 <MenuItem Name="GuidePlaceReport" Header="Получение отчёта" Click="GuidePlaceReport_Click"></MenuItem>
                 <MenuItem Name="TourReport" Header="Получение отчёта" Click="TourReport_Click"></MenuItem>
             </MenuItem>
+            <MenuItem Name="RegOrAut" Header="Вход"  HorizontalAlignment="Right" Click="RegOrAut_Click"></MenuItem>
         </Menu>
 
     </Grid>

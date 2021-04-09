@@ -13,24 +13,13 @@ using System.Windows.Shapes;
 namespace TravelAgencyView
 {
     /// <summary>
-    /// Логика взаимодействия для WindowGroup.xaml
+    /// Логика взаимодействия для WindowGroupTourist.xaml
     /// </summary>
-    public partial class WindowGroup : Window
+    public partial class WindowGroupTourist : Window
     {
-        public WindowGroup()
+        public WindowGroupTourist()
         {
             InitializeComponent();
-        }
-
-        private void buttonSave_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void buttonAdd_Click(object sender, RoutedEventArgs e)
-        {
-            WindowGroupTourist window = new WindowGroupTourist();
-            window.ShowDialog();
         }
     }
 }

@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace TravelAgencyView
 {
     /// <summary>
-    /// Логика взаимодействия для WindowGroup.xaml
+    /// Логика взаимодействия для WindowAutorization.xaml
     /// </summary>
-    public partial class WindowGroup : Window
+    public partial class WindowAutorization : Window
     {
-        public WindowGroup()
+        public WindowAutorization()
         {
             InitializeComponent();
         }
@@ -25,12 +25,6 @@ namespace TravelAgencyView
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void buttonAdd_Click(object sender, RoutedEventArgs e)
-        {
-            WindowGroupTourist window = new WindowGroupTourist();
-            window.ShowDialog();
         }
     }
 }

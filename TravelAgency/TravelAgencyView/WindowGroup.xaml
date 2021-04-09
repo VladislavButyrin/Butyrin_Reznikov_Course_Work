@@ -5,27 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelAgencyView"
         mc:Ignorable="d"
-        Title="WindowGroup" Height="140" Width="320">
+        Title="Создание и изменение группы" Height="350" Width="490">
     <Grid>
-        <Grid.RowDefinitions>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="160"></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="187"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical">
-            <TextBox x:Name="Name" Margin="10">
-            </TextBox>
-            <TextBox x:Name="Count" Margin="10">
+        <StackPanel Orientation="Horizontal">
+            <Label Margin="10,10" Width="111">
+                Название группы
+            </Label>
+            <TextBox x:Name="Name"  Width="150" Margin="0,10,10,15">
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Column="1">
-            <Label Margin="0,5,0,0" HorizontalAlignment="Center">Введите имя</Label>
-            <Label Margin="0,15,0,0" HorizontalAlignment="Center">Введите количество людей</Label>
-            <Button x:Name="buttonSave" Margin="5,20,5,5" Click="buttonSave_Click">Сохранить</Button>
+        <DataGrid x:Name="dataGridView" Margin="20,20,20,20" Grid.Row="1" Grid.Column="0" Background="AliceBlue"></DataGrid>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label HorizontalAlignment="Center" Margin="10,30,10,10">Присоединить туристов</Label>
+            <Button x:Name="buttonAdd" Margin="10" Height="25" Background="AliceBlue" Click="buttonAdd_Click">Добавить</Button>
+            <Button x:Name="buttonDel" Margin="10" Height="25" Background="AliceBlue" Click="buttonDel_Click">Удалить</Button>
         </StackPanel>
-        
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="-30,234,0,0" Grid.RowSpan="2" Width="240">
+            <Button x:Name="buttonCancel" Margin="10" Height="25" Width="100" Background="AliceBlue" Click="buttonCancel_Click">Сохранить</Button>
+            <Button x:Name="buttonSave" Margin="10" Height="25" Width="100" Background="AliceBlue" Click="buttonSave_Click">Отмена</Button>
+        </StackPanel>
+
     </Grid>
 </Window>

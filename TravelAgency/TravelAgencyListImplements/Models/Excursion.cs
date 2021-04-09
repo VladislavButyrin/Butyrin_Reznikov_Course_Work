@@ -9,7 +9,7 @@ namespace TravelAgencyListImplement.Models
 
         public string ExcursionName { get; set; }
 
-        //public string Place { get; set; }
+        public string Place { get; set; }
 
         public DateTime Date { get; set; }
 

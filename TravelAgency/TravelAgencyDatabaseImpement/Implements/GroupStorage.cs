@@ -66,7 +66,9 @@ namespace TravelAgencyDatabaseImpement.Implements
                     PeopleQuantity = group.PeopleQuantity,
                     Tours = group.Tours
                             .ToDictionary(recTours => recTours.Id,
-                            recTours => (recTours.TourName))
+                            recTours => (recTours.TourName)),
+                    Tourists=group.Tourists.ToDictionary(recTourists => (int)recTourists.Id,
+                            recTourists => (recTourists.TouristName))
                 } :
                null;
             }
@@ -155,11 +157,27 @@ namespace TravelAgencyDatabaseImpement.Implements
                     .ToList());
                 context.SaveChanges();
 
+                var Tourist = context.Tourists
+                    .Where(rec => rec.Id == model.Id.Value)
+                    .ToList();
+
+                context.Tourists.RemoveRange(Tourist
+                    .Where(rec => !model.Tourists.ContainsKey((int)rec.Id))
+                    .ToList());
+                context.SaveChanges();
+
                 foreach (var updateTour in Tour)
                 {
                     model.Tours.Remove(updateTour.Id);
                 }
                 context.SaveChanges();
+
+                foreach (var updateTourist in Tourist)
+                {
+                    model.Tours.Remove(updateTourist.Id);
+                }
+                context.SaveChanges();
+
             }
             foreach (var tour in model.Tours)
             {
@@ -167,6 +185,14 @@ namespace TravelAgencyDatabaseImpement.Implements
                 {
                     TourName = tour.Value
                 }) ;
+                context.SaveChanges();
+            }
+            foreach (var tourist in model.Tourists)
+            {
+                context.Tourists.Add(new Tourist
+                {
+                    TouristName = tourist.Value
+                });
                 context.SaveChanges();
             }
             return group;

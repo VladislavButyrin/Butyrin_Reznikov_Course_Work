@@ -19,5 +19,7 @@ namespace TravelAgencyDatabaseImpement
         public virtual DbSet<Guide> Guides { set; get; }
         public virtual DbSet<Place> Places { set; get; }
         public virtual DbSet<Trip> Trips { set; get; }
+        public virtual DbSet<Tourist> Tourists { set; get; }
+        public virtual DbSet<User> Users { set; get; }
     }
 }

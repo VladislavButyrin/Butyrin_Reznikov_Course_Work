@@ -6,6 +6,8 @@
 
         public string GuideName { get; set; }
 
+        public string Passport { set; get; }
+
         public int TripId { get; set; }
 
     }

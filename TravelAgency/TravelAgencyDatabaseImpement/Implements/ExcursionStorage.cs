@@ -21,7 +21,7 @@ namespace TravelAgencyDatabaseImpement.Implements
                     Id = rec.Id,
                     ExcursionName = rec.ExcursionName,
                     Date = rec.Date,
-                    GuideId = rec.Guide.Id,
+                    GuideId = rec.Guides.Id,
                     Tours = rec.Tours
                             .ToDictionary(recTours => recTours.Id,
                             recTours => (recTours.TourName))
@@ -45,7 +45,7 @@ namespace TravelAgencyDatabaseImpement.Implements
                    Id = rec.Id,
                    ExcursionName = rec.ExcursionName,
                    Date = rec.Date,
-                   GuideId = rec.Guide.Id,
+                   GuideId = rec.Guides.Id,
                    Tours = rec.Tours
                             .ToDictionary(recTours => recTours.Id,
                             recTours => (recTours.TourName))
@@ -69,7 +69,7 @@ namespace TravelAgencyDatabaseImpement.Implements
                     Id = excursion.Id,
                     ExcursionName = excursion.ExcursionName,
                     Date = excursion.Date,
-                    GuideId = excursion.Guide.Id,
+                    GuideId = excursion.Guides.Id,
                     Tours = excursion.Tours
                             .ToDictionary(recTours => recTours.Id,
                             recTours => (recTours.TourName))

@@ -34,7 +34,7 @@ namespace TravelAgencyListImplements.Implements
             List<PlaceViewModel> result = new List<PlaceViewModel>();
             foreach (var place in source.Places)
             {
-                if (place.PlaceName.Contains(model.Name))
+                if (place.PlaceName.Contains(model.PlaceName))
                 {
                     result.Add(CreateModel(place));
                 }
@@ -50,7 +50,7 @@ namespace TravelAgencyListImplements.Implements
             foreach (var place in source.Places)
             {
                 if (place.Id == model.Id || place.PlaceName ==
-               model.Name)
+               model.PlaceName)
                 {
                     return CreateModel(place);
                 }
@@ -100,7 +100,7 @@ namespace TravelAgencyListImplements.Implements
         }
         private Place CreateModel(PlaceBindingModel model, Place place)
         {
-            place.PlaceName = model.Name;
+            place.PlaceName = model.PlaceName;
             place.GroupId = model.GroupId;
             place.Adress = model.Adress;
             // удаляем убранные
@@ -129,8 +129,8 @@ namespace TravelAgencyListImplements.Implements
         }
         private PlaceViewModel CreateModel(Place place)
         {
-            Dictionary<int, (string, int)> trip = new
-        Dictionary<int, (string, int)>();
+            Dictionary<int,string> trip = new
+        Dictionary<int,string>();
             foreach (var db in place.Trips)
             {
                 string tourName = string.Empty;
@@ -142,12 +142,12 @@ namespace TravelAgencyListImplements.Implements
                         break;
                     }
                 }
-                trip.Add(db.Key, (tourName, db.Value));
+                trip.Add(db.Key, tourName);
             }
             return new PlaceViewModel
             {
                 Id = place.Id,
-                Name = place.PlaceName,
+                PlaceName = place.PlaceName,
                 Adress = place.Adress,
                 GroupId = place.GroupId,
                 Trips = place.Trips

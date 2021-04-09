@@ -13,8 +13,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
@@ -33,9 +33,9 @@
             <Button x:Name="buttonDel" Margin="10" Height="25" Background="AliceBlue" Click="buttonDel_Click">Удалить</Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="-30,234,0,0" Grid.RowSpan="2" Width="240">
-            <Button x:Name="buttonCancel" Margin="10" Height="25" Width="100" Background="AliceBlue" Click="buttonCancel_Click">Сохранить</Button>
-            <Button x:Name="buttonSave" Margin="10" Height="25" Width="100" Background="AliceBlue" Click="buttonSave_Click">Отмена</Button>
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button x:Name="buttonCancel" Margin="10" Height="25" Width="100" Background="AliceBlue" Click="buttonCancel_Click">Отмена</Button>
+            <Button x:Name="buttonSave" Margin="10" Height="25" Width="100" Background="AliceBlue" Click="buttonSave_Click"> Сохранить</Button>
         </StackPanel>
 
     </Grid>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelAgencyView"
         mc:Ignorable="d"
-        Title="Добавление туриста" Height="125" Width="252">
+        Title="Добавление туриста" Height="150" Width="252">
     <Grid>
 
         <Grid.RowDefinitions>

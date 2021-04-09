@@ -32,5 +32,15 @@ namespace TravelAgencyView
             WindowGroupTourist window = new WindowGroupTourist();
             window.ShowDialog();
         }
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonDel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

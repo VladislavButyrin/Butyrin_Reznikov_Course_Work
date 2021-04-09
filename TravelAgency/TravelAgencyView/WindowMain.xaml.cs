@@ -60,6 +60,12 @@ namespace TravelAgencyView
             window.ShowDialog();
         }
 
+        private void Report_Click(object sender, RoutedEventArgs e)
+        {
+            WindowTourReport window = new WindowTourReport();
+            window.ShowDialog();
+        }
+
         private void RegOrAut_Click(object sender, RoutedEventArgs e)
         {
             WindowRegOrAut window = new WindowRegOrAut();

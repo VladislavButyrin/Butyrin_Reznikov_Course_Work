@@ -1,103 +1,132 @@
-﻿using TravelAgencyBusinessLogic.BindingModels;
-using TravelAgencyBusinessLogic.HelperModels;
-using TravelAgencyBusinessLogic.Interfaces;
-using TravelAgencyBusinessLogic.ViewModels;
+﻿using _VetCliniсBusinessLogic_.BindingModels;
+using _VetCliniсBusinessLogic_.HelperModels;
+using _VetCliniсBusinessLogic_.Interfaces;
+using _VetCliniсBusinessLogic_.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
-namespace TravelAgencyBusinessLogic.BusinessLogics
+namespace _VetCliniсBusinessLogic_.BusinessLogic
 {
     public class ReportLogic
     {
-        private readonly ITourStorage _tourStorage;
-        private readonly ITripStorage _tripStorage;
-        private readonly IExcursionStorage _excursionStorage;
-        private readonly IGroupStorage _groupStorage;
-        private readonly IPlaceStorage _placeStorage;
-        private readonly IGuideStorage _guideStorage;
-        public ReportLogic(ITourStorage tourStorage, ITripStorage tripStorage, IExcursionStorage excursionStorage, IGroupStorage groupStorage,
-            IPlaceStorage placeStorage, IGuideStorage guideStorage)
+        private readonly IMedicationStorage _medicationStorage;
+        private readonly IMedicineStorage _medicineStorage;
+        private readonly IVisitStorage _visitStorage;
+        private readonly IPurchaseStorage _purchaseStorage;
+        public ReportLogic(IMedicationStorage medicationStorage, IMedicineStorage
+       medicineStorage, IVisitStorage visitStorage, IPurchaseStorage purchaseStorage)
         {
-            _tourStorage = tourStorage;
-            _tripStorage = tripStorage;
-            _excursionStorage = excursionStorage;
-            _groupStorage = groupStorage;
-            _placeStorage = placeStorage;
-            _guideStorage = guideStorage;
+            _medicationStorage = medicationStorage;
+            _medicineStorage = medicineStorage;
+            _visitStorage = visitStorage;
+            _purchaseStorage = purchaseStorage;
         }
         /// <summary>
         /// Получение списка компонент с указанием, в каких изделиях используются
         /// </summary>
-         /// <returns></returns>
-        public List<ReportTourViewModel> GetTour()
+        /// <returns></returns>
+        public List<ReportPurchaseMedicationViewModel> GetPurchasesMedication(ReportBindingModel model)
         {
-            var tours = _tourStorage.GetFullList();
-            var excursions = _excursionStorage.GetFullList();
-            var groups = _groupStorage.GetFullList();
-            var list = new List<ReportTourViewModel>();
-            foreach (var tour in tours)
+            var medications = _medicationStorage.GetFullList();
+            var purchases = _purchaseStorage.GetFullList();
+            var medicines = _medicineStorage.GetFullList();
+            var list = new List<ReportPurchaseMedicationViewModel>();
+            foreach (var purchase in purchases)
             {
-                var record = new ReportTourViewModel
+                bool have_medications = true;
+                foreach (int medication in model.Medications) 
                 {
-                    TourName = tour.TourName  
+                    foreach (var medicine in purchase.MedicinesPurchases)
+                    {
+                        if (!medicines.FirstOrDefault(rec => rec.Id == medicine.Key).Medications.ContainsKey(medication))
+                        {
+                            have_medications = false;
+                        }
+                    }
+                }
+                if (!have_medications)
+                    continue;
+                var record = new ReportPurchaseMedicationViewModel
+                {
+                    PurchaseId = purchase.Id,
+                    Date = purchase.DatePayment,
+                    Sum = purchase.Sum,
                 };
-                foreach (var excursion in excursions)
-                {
-                    foreach (var excursionTour in excursion.Tours)
-                    {
-                        if (excursionTour.Value == tour.TourName)
-                        {
-                            record.Excursions.Add(excursion.ExcursionName);
-                        }
-                    }
-                }
-                foreach (var group in groups)
-                {
-                    foreach (var groupTour in group.Tours)
-                    {
-                        if (groupTour.Value == tour.TourName)
-                        {
-                            record.GroupId = (int)group.Id;
-                        }
-                    }
-                }
                 list.Add(record);
             }
             return list;
         }
-        /// <summary>
-        /// Получение списка заказов за определенный период
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        public List<ReportGuidePlaceViewModel> GetGuidePlace(ReportBindingModel model)
+        public List<ReportServiceMedicineViewModel> GetServiceMedicine(ReportBindingModel model)
         {
-            var trips = _tripStorage.GetFullList();
-            var guides = _guideStorage.GetFullList();
-            var places = _placeStorage.GetFullList();
-            var list = new List<ReportGuidePlaceViewModel>();
-            foreach (var guide in guides)
+            var purchaces = _purchaseStorage.GetFilteredList(new PurchaseBindingModel { 
+                DateFrom = model.DateFrom,
+                DateTo = model.DateTo
+            });
+            var visits = _visitStorage.GetFilteredList(new VisitBindingModel
             {
-                var record = new ReportGuidePlaceViewModel
+                DateFrom = model.DateFrom,
+                DateTo = model.DateTo
+            });
+            var list = new List<ReportServiceMedicineViewModel>();
+            foreach (var purchace in purchaces)
+            {
+                foreach (var medicine in purchace.MedicinesPurchases)
                 {
-                    GuideName = guide.GuideName
-                };
-
-                foreach(var trip in trips)
-                {
-                    foreach (var place in places)
+                    var selectedvisits = visits.Where(rec => rec.DateVisit.Date == purchace.DatePayment.Date).ToList();
+                    foreach (var visit in selectedvisits)
                     {
-                        if (trip.Id == guide.TripId && place.Trips.ContainsValue(trip.TripName))
+                        var report = visit.ServicesVisits.Values.Select(s => new ReportServiceMedicineViewModel
                         {
-                            record.PlaceName = place.PlaceName;
-                        }
+                            Date = visit.DateVisit.Date,
+                            ServiceName = s,
+                            MedicineName = medicine.Value.Item1,
+                            MedicineCount = medicine.Value.Item2
+                        }).ToList();
+                        report.ForEach(rep => list.Add(rep));
                     }
                 }
-                list.Add(record);
             }
             return list;
+        }
+        /// <summary>
+        /// Сохранение компонент в файл-Word
+        /// </summary>
+        /// <param name="model"></param>
+        public void SavePurchasesToWordFile(ReportBindingModel model)
+        {
+            SaveToWord.CreateDoc(new WordExelInfo
+            {
+                FileName = model.FileName,
+                Title = "Список покупок на основе выбранных медикаментов",
+                MedicineMedications = GetPurchasesMedication(model),
+                NeededMedications = _medicationStorage.GetFullList().Where(rec => model.Medications.Contains(rec.Id)).Select(rec => rec.MedicationName).ToList()
+            });
+        }
+        /// <summary>
+        /// Сохранение компонент с указаеним продуктов в файл-Excel
+        /// </summary>
+        /// <param name="model"></param>
+        public void SavePurchasesToExcelFile(ReportBindingModel model)
+        {
+            SaveToExcel.CreateDoc(new WordExelInfo
+            {
+                FileName = model.FileName,
+                Title = "Список покупок на основе выбранных медикаментов",
+                MedicineMedications = GetPurchasesMedication(model),
+                NeededMedications = _medicationStorage.GetFullList().Where(rec => model.Medications.Contains(rec.Id)).Select(rec => rec.MedicationName).ToList()
+            });
+        }
+        public void SaveOrderToPdfFile(ReportBindingModel model)
+        {
+            SaveToPdf.CreateDoc(new PdfInfo
+            { 
+                FileName = model.FileName,
+                DateFrom = (DateTime)model.DateFrom,
+                DateTo = (DateTime)model.DateTo,
+                Title = "Отчёт",
+                ServicesMedicines = GetServiceMedicine(model)
+            });
         }
     }
 }

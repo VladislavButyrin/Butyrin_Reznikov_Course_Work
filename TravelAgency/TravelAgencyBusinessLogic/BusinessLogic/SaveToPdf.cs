@@ -1,11 +1,10 @@
-﻿using TravelAgencyBusinessLogic.HelperModels;
+﻿using _VetCliniсBusinessLogic_.HelperModels;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using System.Collections.Generic;
 
-
-namespace TravelAgencyBusinessLogic.BusinessLogics
+namespace _VetCliniсBusinessLogic_.BusinessLogic
 {
     class SaveToPdf
     {
@@ -18,13 +17,13 @@ namespace TravelAgencyBusinessLogic.BusinessLogics
             paragraph.Format.SpaceAfter = "1cm";
             paragraph.Format.Alignment = ParagraphAlignment.Center;
             paragraph.Style = "NormalTitle";
-            paragraph = section.AddParagraph($"с {info.DateFrom.ToShortDateString()} по { info.DateTo.ToShortDateString()}");
-
+            paragraph = section.AddParagraph($"с {info.DateFrom.ToShortDateString()} по { info.DateTo.ToShortDateString()} ");
             paragraph.Format.SpaceAfter = "1cm";
             paragraph.Format.Alignment = ParagraphAlignment.Center;
             paragraph.Style = "Normal";
             var table = document.LastSection.AddTable();
-            List<string> columns = new List<string> { "3cm", "6cm", "3cm", "2cm", "3cm"};
+            List<string> columns = new List<string> { "3cm", "6cm", "3cm", "2cm", "3cm"
+};
             foreach (var elem in columns)
             {
                 table.AddColumn(elem);
@@ -32,19 +31,17 @@ namespace TravelAgencyBusinessLogic.BusinessLogics
             CreateRow(new PdfRowParameters
             {
                 Table = table,
-                Texts = new List<string> { "Дата заказа", "Мебель", "Количество",
-"Сумма", "Статус" },
+                Texts = new List<string> { "Дата", "Услуга", "Лекарство"},
                 Style = "NormalTitle",
                 ParagraphAlignment = ParagraphAlignment.Center
             });
-            foreach (var order in info.Orders)
+            foreach (var servicemedicine in info.ServicesMedicines)
             {
                 CreateRow(new PdfRowParameters
                 {
                     Table = table,
-                    Texts = new List<string> { order.DateCreate.ToShortDateString(),
-order.FurnitureName, order.Count.ToString(), order.Sum.ToString(), order.Status.ToString()
-},
+                    Texts = new List<string> { servicemedicine.Date.ToShortDateString(),
+servicemedicine.ServiceName, servicemedicine.MedicineName},
                     Style = "Normal",
                     ParagraphAlignment = ParagraphAlignment.Left
                 });

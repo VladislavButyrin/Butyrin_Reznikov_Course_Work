@@ -1,7 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Wordprocessing;
 
-
-namespace TravelAgencyBusinessLogic.HelperModels
+namespace _VetCliniсBusinessLogic_.HelperModels
 {
     class WordParagraphProperties
     {

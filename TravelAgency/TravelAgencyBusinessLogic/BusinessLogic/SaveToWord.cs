@@ -1,11 +1,10 @@
-﻿using TravelAgencyBusinessLogic.HelperModels;
+﻿using _VetCliniсBusinessLogic_.HelperModels;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System.Collections.Generic;
 
-
-namespace TravelAgencyBusinessLogic.BusinessLogics
+namespace _VetCliniсBusinessLogic_.BusinessLogic
 {
     static class SaveToWord
     {
@@ -13,39 +12,69 @@ namespace TravelAgencyBusinessLogic.BusinessLogics
         /// Создание документа
         /// </summary>
         /// <param name="info"></param>
-        public static void CreateDoc(WordInfo info)
+        public static void CreateDoc(WordExelInfo info)
         {
-            using (WordprocessingDocument wordDocument =
-           WordprocessingDocument.Create(info.FileName, WordprocessingDocumentType.Document))
+            using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(info.FileName, WordprocessingDocumentType.Document))
             {
                 MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
                 mainPart.Document = new Document();
                 Body docBody = mainPart.Document.AppendChild(new Body());
                 docBody.AppendChild(CreateParagraph(new WordParagraph
                 {
-                    Texts = new List<(string, WordTextProperties)> { (info.Title, new
-WordTextProperties {Bold = true, Size = "24", } ) },
+                    Texts = new List<(string, WordTextProperties)> { (info.Title, new WordTextProperties { Bold = true, Size = "24", }) },
                     TextProperties = new WordTextProperties
                     {
                         Size = "24",
                         JustificationValues = JustificationValues.Center
                     }
                 }));
-                foreach (var furniture in info.Furnitures)
+                if (info.MedicineMedications != null)
                 {
+                    string medications = "";
+                    for (int i = 0; i < info.NeededMedications.Count; i++)
+                    {
+                        medications += info.NeededMedications[i];
+                        if (i != info.NeededMedications.Count - 1)
+                        {
+                            medications += ", ";
+                        }
+                    }
                     docBody.AppendChild(CreateParagraph(new WordParagraph
                     {
                         Texts = new List<(string, WordTextProperties)> {
-($"{furniture.FurnitureName}: ", new WordTextProperties { Size = "24", Bold = true }), (furniture.Price.ToString(), new WordTextProperties { Size = "24" }) },
+                                ("Имеющие в своём составе следующие медикаменты : ", new WordTextProperties {Bold = true, Size = "24", })},
                         TextProperties = new WordTextProperties
                         {
-
                             Size = "24",
                             JustificationValues = JustificationValues.Both
                         }
-                    }));
+                    })); ;
+                    docBody.AppendChild(CreateParagraph(new WordParagraph
+                    {
+                        Texts = new List<(string, WordTextProperties)> {
+                            (medications, new WordTextProperties {Bold = false, Size = "24", })},
+                        TextProperties = new WordTextProperties
+                        {
+                            Size = "24",
+                            JustificationValues = JustificationValues.Both
+                        }
+                    })); ;
+                    foreach (var medicineMedication in info.MedicineMedications)
+                    {
+                        docBody.AppendChild(CreateParagraph(new WordParagraph
+                        {
+                            Texts = new List<(string, WordTextProperties)> {
+                                ("Id покупки : " + medicineMedication.PurchaseId + ", сумма покупки : " + medicineMedication.Sum + ", дата покупки : " + medicineMedication.Date, new WordTextProperties {Bold = true, Size = "24", }) ,
+                                (" : \n", new WordTextProperties {Bold = false, Size = "24", })},
+                            TextProperties = new WordTextProperties
+                            {
+                                Size = "24",
+                                JustificationValues = JustificationValues.Both
+                            }
+                        })); ;
+                    }
+                    docBody.AppendChild(CreateSectionProperties());
                 }
-                docBody.AppendChild(CreateSectionProperties());
                 wordDocument.MainDocumentPart.Document.Save();
             }
         }
@@ -95,7 +124,7 @@ WordTextProperties {Bold = true, Size = "24", } ) },
                 }
                 return docParagraph;
             }
-        return null;
+            return null;
         }
         /// <summary>
         /// Задание форматирования для абзаца
@@ -132,6 +161,5 @@ WordTextProperties {Bold = true, Size = "24", } ) },
             }
             return null;
         }
-
     }
 }

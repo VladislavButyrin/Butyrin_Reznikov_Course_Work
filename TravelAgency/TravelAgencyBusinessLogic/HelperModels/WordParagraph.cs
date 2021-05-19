@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace TravelAgencyBusinessLogic.HelperModels
+namespace _VetCliniсBusinessLogic_.HelperModels
 {
     class WordParagraph
     {
         public List<(string, WordTextProperties)> Texts { get; set; }
         public WordTextProperties TextProperties { get; set; }
-
     }
 }

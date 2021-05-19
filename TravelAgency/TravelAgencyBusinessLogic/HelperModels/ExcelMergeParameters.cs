@@ -1,7 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Spreadsheet;
 
-
-namespace TravelAgencyBusinessLogic.HelperModels
+namespace _VetCliniсBusinessLogic_.HelperModels
 {
     class ExcelMergeParameters
     {

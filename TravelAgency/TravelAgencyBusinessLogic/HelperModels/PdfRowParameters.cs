@@ -2,8 +2,7 @@
 using MigraDoc.DocumentObjectModel.Tables;
 using System.Collections.Generic;
 
-
-namespace TravelAgencyBusinessLogic.HelperModels
+namespace _VetCliniсBusinessLogic_.HelperModels
 {
     class PdfRowParameters
     {

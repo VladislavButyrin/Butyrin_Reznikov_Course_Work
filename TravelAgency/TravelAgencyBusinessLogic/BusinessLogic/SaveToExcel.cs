@@ -1,4 +1,4 @@
-﻿using TravelAgencyBusinessLogic.HelperModels;
+﻿using _VetCliniсBusinessLogic_.HelperModels;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Office2013.Excel;
@@ -6,27 +6,22 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Linq;
 
-
-namespace TravelAgencyBusinessLogic.BusinessLogics
+namespace _VetCliniсBusinessLogic_.BusinessLogic
 {
     static class SaveToExcel
     {
-        public static void CreateDoc(ExcelInfo info)
+        public static void CreateDoc(WordExelInfo info)
         {
-            using (SpreadsheetDocument spreadsheetDocument =
-           SpreadsheetDocument.Create(info.FileName, SpreadsheetDocumentType.Workbook))
+            using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Create(info.FileName, SpreadsheetDocumentType.Workbook))
             {
                 // Создаем книгу (в ней хранятся листы)
                 WorkbookPart workbookpart = spreadsheetDocument.AddWorkbookPart();
                 workbookpart.Workbook = new Workbook();
                 CreateStyles(workbookpart);
                 // Получаем/создаем хранилище текстов для книги
-                SharedStringTablePart shareStringPart =
-               spreadsheetDocument.WorkbookPart.GetPartsOfType<SharedStringTablePart>().Count() > 0
-                ?
-               spreadsheetDocument.WorkbookPart.GetPartsOfType<SharedStringTablePart>().First()
-                :
-               spreadsheetDocument.WorkbookPart.AddNewPart<SharedStringTablePart>();
+                SharedStringTablePart shareStringPart = spreadsheetDocument.WorkbookPart.GetPartsOfType<SharedStringTablePart>().Count() > 0
+                ? spreadsheetDocument.WorkbookPart.GetPartsOfType<SharedStringTablePart>().First()
+                : spreadsheetDocument.WorkbookPart.AddNewPart<SharedStringTablePart>();
                 // Создаем SharedStringTable, если его нет
                 if (shareStringPart.SharedStringTable == null)
                 {
@@ -34,10 +29,8 @@ namespace TravelAgencyBusinessLogic.BusinessLogics
                 }
                 // Создаем лист в книгу
                 WorksheetPart worksheetPart = workbookpart.AddNewPart<WorksheetPart>();
-                worksheetPart.Worksheet = new Worksheet(new SheetData());
-                // Добавляем лист в книгу
-                Sheets sheets =
-               spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
+                worksheetPart.Worksheet = new Worksheet(new SheetData());// Добавляем лист в книгу
+                Sheets sheets = spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                 Sheet sheet = new Sheet()
                 {
                     Id = spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart),
@@ -61,28 +54,55 @@ namespace TravelAgencyBusinessLogic.BusinessLogics
                     CellToName = "C1"
                 });
                 uint rowIndex = 2;
-                foreach (var pc in info.FurnitureComponents)
+                if (info.MedicineMedications != null)
                 {
+                    string medications = "";
+                    for (int i = 0; i < info.NeededMedications.Count; i++)
+                    {
+                        medications += info.NeededMedications[i];
+                        if (i != info.NeededMedications.Count - 1)
+                        {
+                            medications += ", ";
+                        }
+                    }
                     InsertCellInWorksheet(new ExcelCellParameters
                     {
                         Worksheet = worksheetPart.Worksheet,
                         ShareStringPart = shareStringPart,
                         ColumnName = "A",
                         RowIndex = rowIndex,
-                        Text = pc.FurnitureName,
+                        Text = "Имеющие в своём составе следующие медикаменты : ",
+                        StyleIndex = 0U
+                    });
+                    InsertCellInWorksheet(new ExcelCellParameters
+                    {
+                        Worksheet = worksheetPart.Worksheet,
+                        ShareStringPart = shareStringPart,
+                        ColumnName = "B",
+                        RowIndex = rowIndex,
+                        Text = medications,
                         StyleIndex = 0U
                     });
                     rowIndex++;
-                    foreach (var Furniture in pc.Components)
+                    foreach (var mm in info.MedicineMedications)
                     {
+                        InsertCellInWorksheet(new ExcelCellParameters
+                        {
+                            Worksheet = worksheetPart.Worksheet,
+                            ShareStringPart = shareStringPart,
+                            ColumnName = "A",
+                            RowIndex = rowIndex,
+                            Text = "Id покупки :",
+                            StyleIndex = 0U
+                        });
                         InsertCellInWorksheet(new ExcelCellParameters
                         {
                             Worksheet = worksheetPart.Worksheet,
                             ShareStringPart = shareStringPart,
                             ColumnName = "B",
                             RowIndex = rowIndex,
-                            Text = Furniture.Item1,
-                            StyleIndex = 1U
+                            Text = mm.PurchaseId.ToString(),
+                            StyleIndex = 0U
                         });
                         InsertCellInWorksheet(new ExcelCellParameters
                         {
@@ -90,23 +110,41 @@ namespace TravelAgencyBusinessLogic.BusinessLogics
                             ShareStringPart = shareStringPart,
                             ColumnName = "C",
                             RowIndex = rowIndex,
-                            Text = Furniture.Item2.ToString(),
-                            StyleIndex = 1U
+                            Text = "сумма покупки :",
+                            StyleIndex = 0U
+                        });
+                        InsertCellInWorksheet(new ExcelCellParameters
+                        {
+                            Worksheet = worksheetPart.Worksheet,
+                            ShareStringPart = shareStringPart,
+                            ColumnName = "D",
+                            RowIndex = rowIndex,
+                            Text = mm.Sum.ToString(),
+                            StyleIndex = 0U
+                        });
+                        InsertCellInWorksheet(new ExcelCellParameters
+                        {
+                            Worksheet = worksheetPart.Worksheet,
+                            ShareStringPart = shareStringPart,
+                            ColumnName = "E",
+                            RowIndex = rowIndex,
+                            Text = "дата покупки :",
+                            StyleIndex = 0U
+                        });
+                        InsertCellInWorksheet(new ExcelCellParameters
+                        {
+                            Worksheet = worksheetPart.Worksheet,
+                            ShareStringPart = shareStringPart,
+                            ColumnName = "F",
+                            RowIndex = rowIndex,
+                            Text = mm.Date.ToString(),
+                            StyleIndex = 0U
                         });
                         rowIndex++;
                     }
-                    InsertCellInWorksheet(new ExcelCellParameters
-                    {
-                        Worksheet = worksheetPart.Worksheet,
-                        ShareStringPart = shareStringPart,
-                        ColumnName = "C",
-                        RowIndex = rowIndex,
-                        Text = pc.TotalCount.ToString(),
-                        StyleIndex = 0U
-                    });
-                    rowIndex++;
+                    workbookpart.Workbook.Save();
                 }
-                workbookpart.Workbook.Save();
+
             }
         }
         /// <summary>
@@ -255,7 +293,8 @@ namespace TravelAgencyBusinessLogic.BusinessLogics
             cellStyles.Append(new CellStyle()
             {
                 Name = "Normal",
-                FormatId = (UInt32Value)0U,
+                FormatId =
+                (UInt32Value)0U,
                 BuiltinId = (UInt32Value)0U
             });
             DocumentFormat.OpenXml.Office2013.Excel.DifferentialFormats
@@ -389,7 +428,7 @@ cellParameters.CellReference).Count() > 0)
                 else
                 {
                     mergeParameters.Worksheet.InsertAfter(mergeCells,
-                   mergeParameters.Worksheet.Elements<SheetData>().First());
+                        mergeParameters.Worksheet.Elements<SheetData>().First());
                 }
             }
             MergeCell mergeCell = new MergeCell()

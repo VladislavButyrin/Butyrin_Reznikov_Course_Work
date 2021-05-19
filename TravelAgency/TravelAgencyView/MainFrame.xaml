@@ -1,0 +1,25 @@
+﻿<Window x:Class="VetClinicView.MainFrame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VetClinicView"
+        mc:Ignorable="d"
+        Title="Главное меню" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="342*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="3">
+            <MenuItem x:Name="MedicationItem" Margin="3" Header="Медикаменты" Click="MedicationItem_Click"/>
+            <MenuItem x:Name="MedicineItem" Header="Лекарства" Click="MedicineItem_Click"></MenuItem>
+            <MenuItem x:Name="ServiceItem" Header="Услуги" Click="ServiceItem_Click"></MenuItem>
+            <MenuItem x:Name="MedicineListItem" Header="Получение списка лекарств" Click="MedicineListItem_Click"></MenuItem>
+            <MenuItem x:Name="MedicineServiceReportItem" Header="Получение отчёта по лекарствам и услугам" Click="MedicineServiceReportItem_Click"></MenuItem>
+            <MenuItem x:Name="AddServiceToVisitItem" Header="Привязать услугу" Click="AddServiceToVisitItem_Click"></MenuItem>
+        </Menu>
+        <Label VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Margin="260,196,368,197">Логотип</Label>
+    </Grid>
+</Window>

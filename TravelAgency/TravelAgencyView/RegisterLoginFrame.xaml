@@ -1,0 +1,17 @@
+﻿<Window x:Class="VetClinicView.RegisterLoginFrame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VetClinicView"
+        mc:Ignorable="d"
+        Title="Регистрация/Вход" Height="81.611" Width="408.942">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="RegisterButton" Grid.Column="0" Margin="10,0,10,10" Padding="3,3,3,3" AutomationProperties.Name="RegisterButton" Click="RegisterButton_Click">Регистрация</Button>
+        <Button x:Name="EntranceButton" Grid.Column="1" Margin="0,0,10,10" Padding="3,3,3,3" AutomationProperties.Name="EntranceButton" Click="EntranceButton_Click">Вход</Button>
+    </Grid>
+</Window>

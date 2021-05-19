@@ -1,8 +1,7 @@
 ﻿using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 
-
-namespace TravelAgencyBusinessLogic.HelperModels
+namespace _VetCliniсBusinessLogic_.HelperModels
 {
     class PdfCellParameters
     {
@@ -11,6 +10,5 @@ namespace TravelAgencyBusinessLogic.HelperModels
         public string Style { get; set; }
         public ParagraphAlignment ParagraphAlignment { get; set; }
         public Unit BorderWidth { get; set; }
-
     }
 }

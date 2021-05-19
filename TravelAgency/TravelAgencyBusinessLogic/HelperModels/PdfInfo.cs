@@ -1,9 +1,8 @@
-﻿using TravelAgencyBusinessLogic.ViewModels;
+﻿using System.Collections.Generic;
+using _VetCliniсBusinessLogic_.ViewModels;
 using System;
-using System.Collections.Generic;
 
-
-namespace TravelAgencyBusinessLogic.HelperModels
+namespace _VetCliniсBusinessLogic_.HelperModels
 {
     class PdfInfo
     {
@@ -11,6 +10,6 @@ namespace TravelAgencyBusinessLogic.HelperModels
         public string Title { get; set; }
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
-
+        public List<ReportServiceMedicineViewModel> ServicesMedicines { get; set; }
     }
 }

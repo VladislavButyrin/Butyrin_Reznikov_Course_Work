@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBusinessLogic",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyGuarantorView", "TravelAgencyView\TravelAgencyGuarantorView.csproj", "{21F06702-658C-40D6-A1F4-7228FEB795DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyExecutorView", "TravelAgencyExecutorView\TravelAgencyExecutorView.csproj", "{A2009CC5-B72F-4031-999F-0BA31B5F0F6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{21F06702-658C-40D6-A1F4-7228FEB795DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21F06702-658C-40D6-A1F4-7228FEB795DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21F06702-658C-40D6-A1F4-7228FEB795DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2009CC5-B72F-4031-999F-0BA31B5F0F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2009CC5-B72F-4031-999F-0BA31B5F0F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2009CC5-B72F-4031-999F-0BA31B5F0F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2009CC5-B72F-4031-999F-0BA31B5F0F6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

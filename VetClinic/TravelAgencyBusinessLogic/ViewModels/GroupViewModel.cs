@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace TravelAgencyBusinessLogic.ViewModels
+{
+    public class GroupViewModel
+    {
+        public int Id { get; set; }
+
+        public int PeopleQuantity { get; set; }
+
+        [DisplayName("Дата посещения")]
+        public DateTime DateGroup { get; set; }
+        public Dictionary<int, string> ToursGroups { get; set; }
+        public Dictionary<int, string> PlacesGroups { get; set; }
+        public override string ToString()
+        {
+            return DateGroup.ToString();
+        }
+    }
+}

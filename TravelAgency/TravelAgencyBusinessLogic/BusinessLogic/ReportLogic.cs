@@ -59,7 +59,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
         }
         public List<ReportPlaceGuideViewModel> GetPlaceGuide(ReportBindingModel model)
         {
-            var purchaces = _excursionStorage.GetFilteredList(new ExcursionBindingModel { 
+            var excursions = _excursionStorage.GetFilteredList(new ExcursionBindingModel { 
                 DateFrom = model.DateFrom,
                 DateTo = model.DateTo
             });
@@ -69,11 +69,11 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
                 DateTo = model.DateTo
             });
             var list = new List<ReportPlaceGuideViewModel>();
-            foreach (var purchace in purchaces)
+            foreach (var excursion in excursions)
             {
-                foreach (var guide in purchace.GuidesExcursions)
+                foreach (var guide in excursion.GuidesExcursions)
                 {
-                    var selectedgroups = groups.Where(rec => rec.DateGroup.Date == purchace.DatePayment.Date).ToList();
+                    var selectedgroups = groups.Where(rec => rec.DateGroup.Date == excursion.DatePayment.Date).ToList();
                     foreach (var group in selectedgroups)
                     {
                         var report = group.PlacesGroups.Values.Select(s => new ReportPlaceGuideViewModel

@@ -3,6 +3,7 @@ using TravelAgencyBusinessLogic.BusinessLogic;
 using System.Windows;
 using Unity;
 using System;
+using System.Text.RegularExpressions;
 
 namespace TravelAgencyView
 {
@@ -11,6 +12,8 @@ namespace TravelAgencyView
     /// </summary>
     public partial class RegisterFrame : Window
     {
+        const int _passwordMaxLength = 3;
+        const int _passwordMinLength = 40;
         [Dependency]
         public IUnityContainer Container { get; set; }
         private readonly OrganizatorBusinessLogic logic;
@@ -27,7 +30,19 @@ namespace TravelAgencyView
                 MessageBox.Show("Введите логин", "Ошибка");
                 return;
             }
+            if (!Regex.IsMatch(LoginTextBox.Text, @"^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"))
+            {
+                MessageBox.Show("Логином должна быть электронная почта", "Ошибка");
+                return;
+            }
             if (string.IsNullOrEmpty(PasswordTextBox.Text))
+            {
+                MessageBox.Show("Введите логин", "Ошибка");
+                return;
+            }
+            if (PasswordTextBox.Text.Length > _passwordMaxLength || PasswordTextBox.Text.Length <
+_passwordMinLength /*|| !Regex.IsMatch(PasswordTextBox.Text,
+@"^((\w+\d+\W+)|(\w+\W+\d+)|(\d+\w+\W+)|(\d+\W+\w+)|(\W+\w+\d+)|(\W+\d+\w+))[\w\d\W]*$"))*/)
             {
                 MessageBox.Show("Введите логин", "Ошибка");
                 return;

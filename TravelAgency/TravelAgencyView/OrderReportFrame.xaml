@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelAgencyView"
         mc:Ignorable="d"
-        Title="OrderReportFrame" Height="450" Width="800">
+        Title="Отчёт по местам для посещения" Height="450" Width="800">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -32,9 +32,9 @@
                 <DataGrid x:Name="DataGridView" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Дата" Binding="{Binding Path=Date, StringFormat=dd.MM.yyyy}" Width="*"/>
-                        <DataGridTextColumn Header="Услуга" Binding="{Binding Path=PlaceName}" Width="*"/>
-                        <DataGridTextColumn Header="Лекарство" Binding="{Binding Path=GuideName}" Width="*"/>
-                        <DataGridTextColumn Header="Количество лекарств" Binding="{Binding Path=GuideCount}" Width="*"/>
+                        <DataGridTextColumn Header="Место для посещения" Binding="{Binding Path=PlaceName}" Width="*"/>
+                        <DataGridTextColumn Header="Гид" Binding="{Binding Path=GuideName}" Width="*"/>
+                        <DataGridTextColumn Header="Количество гидов" Binding="{Binding Path=GuideCount}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>

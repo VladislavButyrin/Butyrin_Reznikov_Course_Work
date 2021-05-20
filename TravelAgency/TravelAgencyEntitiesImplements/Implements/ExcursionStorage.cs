@@ -12,6 +12,11 @@ namespace TravelAgencyEntitiesImplements.Implements
 {
     public class ExcursionStorage : IExcursionStorage
     {
+        public ExcursionViewModel GetElement(ExcursionBindingModel groupBindingModel)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<ExcursionViewModel> GetFilteredList(ExcursionBindingModel model)
         {
             using (var context = new TravelAgencyDataBase())
@@ -58,6 +63,11 @@ namespace TravelAgencyEntitiesImplements.Implements
                 })
                 .ToList();
             }
+        }
+
+        void IExcursionStorage.Update(ExcursionBindingModel groupBindingModel)
+        {
+            throw new NotImplementedException();
         }
     }
 }

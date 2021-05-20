@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelAgencyView"
         mc:Ignorable="d"
-        Title="Медикамент" Height="132.487" Width="450.508" Loaded="TripFrame_Loaded">
+        Title="Работа с поездкой" Height="132.487" Width="450.508" Loaded="TripFrame_Loaded">
     <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,11 +17,11 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="128"></ColumnDefinition>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Margin="10,10,10,10" Padding="3,3,3,3" VerticalAlignment="Center">Медикамент:</Label>
-            <TextBox x:Name="NameTextBox" Grid.Column="1" Margin="10,10,10,10" Padding="3,3,3,3" VerticalAlignment="Center"></TextBox>
+            <Label Grid.Column="0" Margin="10,14,5,13.6" Padding="3,3,3,3" VerticalAlignment="Center" Height="22">Название поездки:</Label>
+            <TextBox x:Name="NameTextBox" Grid.Column="1" Margin="10,13,10.4,12.6" Padding="3,3,3,3" VerticalAlignment="Center" Height="24"></TextBox>
         </Grid>
         <Grid Grid.Row="1" RenderTransformOrigin="0.24,0.487" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>

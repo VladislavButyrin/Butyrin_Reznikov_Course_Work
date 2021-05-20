@@ -62,7 +62,7 @@ namespace TravelAgencyView
                MessageBoxImage.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(CostTextBox.Text))
+            if (string.IsNullOrEmpty(AddresTextBox.Text))
             {
                 MessageBox.Show("Укажите цену", "Ошибка", MessageBoxButton.OK,
                MessageBoxImage.Error);
@@ -81,7 +81,6 @@ namespace TravelAgencyView
                     Id = id,
                     PlaceName = NameTextBox.Text,
                     OrganizatorId = App.OrganizatorId,
-                    Cost = int.Parse(CostTextBox.Text),
                     Trips = placeTrips
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButton.OK,
@@ -134,7 +133,7 @@ namespace TravelAgencyView
                     })?[0];
                     placeTrips = view.Trips;
                     NameTextBox.Text = view.PlaceName;
-                    CostTextBox.Text = view.Cost.ToString();
+                    AddresTextBox.Text = view.Adress;
                 }
                 catch (Exception ex)
                 {

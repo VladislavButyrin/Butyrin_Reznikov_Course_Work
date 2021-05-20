@@ -64,12 +64,12 @@ namespace TravelAgencyView
             SmtpClient client = new SmtpClient();
             try
             {
-                string basis = "Отчет по болезням";
+                string basis = "Отчет поездкам";
                 msg.Subject = basis;
                 msg.Body = basis + " c " + DatePickerFrom.SelectedDate.Value.ToShortDateString() +
                 " по " + DatePickerTo.SelectedDate.Value.ToShortDateString();
 
-                msg.From = new MailAddress("emailforlab1@gmail.com");
+                msg.From = new MailAddress("sergeyreznikovfirst@gmail.com");
                 msg.To.Add(_organizatorLogic.Read(new OrganizatorBindingModel { Id = App.OrganizatorId})[0].Login);
                 msg.IsBodyHtml = true;
 
@@ -91,7 +91,7 @@ namespace TravelAgencyView
                 //conn
                 msg.Attachments.Add(attach);
                 client.Host = "smtp.gmail.com";
-                NetworkCredential basicauthenticationinfo = new NetworkCredential("emailforlab1@gmail.com", "Jujhjl34");
+                NetworkCredential basicauthenticationinfo = new NetworkCredential("sergeyreznikovfirst@gmail.com", "1xtkjdtr1");
                 client.Port = int.Parse("587");
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;

@@ -8,5 +8,7 @@ namespace TravelAgencyBusinessLogic.Interfaces
     {
         List<ExcursionViewModel> GetFullList();
         List<ExcursionViewModel> GetFilteredList(ExcursionBindingModel model);
+        ExcursionViewModel GetElement(ExcursionBindingModel groupBindingModel);
+        void Update(ExcursionBindingModel groupBindingModel);
     }
 }

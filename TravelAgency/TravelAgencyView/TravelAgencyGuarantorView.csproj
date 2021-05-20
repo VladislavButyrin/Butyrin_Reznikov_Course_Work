@@ -197,6 +197,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddGuideToExcursionFrame.xaml.cs">
+      <DependentUpon>AddGuideToExcursionFrame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddPlaceToGroupFrame.xaml.cs">
       <DependentUpon>AddPlaceToGroupFrame.xaml</DependentUpon>
     </Compile>
@@ -233,6 +236,10 @@
     <Compile Include="PlacesFrame.xaml.cs">
       <DependentUpon>PlacesFrame.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddGuideToExcursionFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddPlaceToGroupFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

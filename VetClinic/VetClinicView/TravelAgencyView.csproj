@@ -321,9 +321,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VetClinikEntitiesImplements\TravelAgencyEntitiesImplements.csproj">
+    <ProjectReference Include="..\VetClinikEntitiesImplements\TravelAgencyDatabaseImplements.csproj">
       <Project>{3af0c9a3-8049-42fc-b3c1-e2e2ba626718}</Project>
-      <Name>TravelAgencyEntitiesImplements</Name>
+      <Name>TravelAgencyDatabaseImplements</Name>
     </ProjectReference>
     <ProjectReference Include="..\«VetCliniсBusinessLogic»\TravelAgencyBusinessLogic.csproj">
       <Project>{01374093-0917-41c4-af77-c571bcc605eb}</Project>

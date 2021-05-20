@@ -5,21 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VetClinicView"
         mc:Ignorable="d"
-        Title="Медикаменты" Height="450" Width="800">
+        Title="Поездки" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="108.217"></ColumnDefinition>
+            <ColumnDefinition Width="31.8"></ColumnDefinition>
+            <ColumnDefinition Width="76.2"/>
             <ColumnDefinition Width="491.783"/>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Margin="5,5,5,5" Padding="3,3,3,3"  BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2">
+        <Border Grid.Column="0" Margin="5,5,5,5" Padding="3,3,3,3"  BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="3">
             <DataGrid x:Name="dataGridView" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Название" Binding="{Binding Path=TripName}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>
-        <StackPanel Grid.Column="2" Orientation="Vertical">
+        <StackPanel Grid.Column="3" Orientation="Vertical" Margin="0,0,-0.4,0">
             <Button x:Name="AddButton" Margin="10,10,10,10" Padding="3,3,3,3" Click="AddButton_Click">Добавить</Button>
             <Button x:Name="ChangeButton" Margin="10,10,10,10" Padding="3,3,3,3" Click="ChangeButton_Click">Изменить</Button>
             <Button x:Name="DeleteButton" Margin="10,10,10,10" Padding="3,3,3,3" Click="DeleteButton_Click">Удалить</Button>

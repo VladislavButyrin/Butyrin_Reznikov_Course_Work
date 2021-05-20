@@ -13,12 +13,12 @@
             <ColumnDefinition Width="342*"/>
         </Grid.ColumnDefinitions>
         <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="3">
-            <MenuItem x:Name="TripItem" Margin="3" Header="Медикаменты" Click="TripItem_Click"/>
-            <MenuItem x:Name="GuideItem" Header="Лекарства" Click="GuideItem_Click"></MenuItem>
-            <MenuItem x:Name="PlaceItem" Header="Услуги" Click="PlaceItem_Click"></MenuItem>
-            <MenuItem x:Name="GuideListItem" Header="Получение списка лекарств" Click="GuideListItem_Click"></MenuItem>
-            <MenuItem x:Name="GuidePlaceReportItem" Header="Получение отчёта по лекарствам и услугам" Click="GuidePlaceReportItem_Click"></MenuItem>
-            <MenuItem x:Name="AddPlaceToGroupItem" Header="Привязать услугу" Click="AddPlaceToGroupItem_Click"></MenuItem>
+            <MenuItem x:Name="TripItem" Margin="3" Header="Поездки" Click="TripItem_Click"/>
+            <MenuItem x:Name="GuideItem" Header="Гиды" Click="GuideItem_Click"></MenuItem>
+            <MenuItem x:Name="PlaceItem" Header="Места для посещения" Click="PlaceItem_Click"></MenuItem>
+            <MenuItem x:Name="GuideListItem" Header="Получение списка гидов" Click="GuideListItem_Click"></MenuItem>
+            <MenuItem x:Name="GuidePlaceReportItem" Header="Получение отчёта по гидам и местам" Click="GuidePlaceReportItem_Click"></MenuItem>
+            <MenuItem x:Name="AddPlaceToGroupItem" Header="Привязать место к группе" Click="AddPlaceToGroupItem_Click"></MenuItem>
         </Menu>
         <Label VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Margin="260,196,368,197">Логотип</Label>
     </Grid>

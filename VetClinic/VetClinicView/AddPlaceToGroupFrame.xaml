@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VetClinicView"
         mc:Ignorable="d"
-        Title="Привязка услуги к посещению" Height="282.05" Width="510.331">
+        Title="Привязка места к группе" Height="282.05" Width="510.331">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="96*"/>
@@ -19,11 +19,11 @@
             <RowDefinition MaxHeight="55"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.ColumnSpan="2">
-            <TextBlock>Выбранное посещение:</TextBlock>
+            <TextBlock>Выбранное Группа:</TextBlock>
         </Label>
         <ComboBox x:Name="GroupComboBox" Grid.Row="1" Margin="8,8,8,8" Grid.ColumnSpan="2"></ComboBox>
         <Label Grid.Row="2" Grid.ColumnSpan="2">
-            <TextBlock>Выбранная услуга:</TextBlock>
+            <TextBlock>Выбранное место для посещения:</TextBlock>
         </Label>
         <ComboBox x:Name="PlaceComboBox" Grid.Row="3" Margin="8,8,8,8" Grid.ColumnSpan="2"></ComboBox>
         <Grid Grid.Row="4" Grid.ColumnSpan="2">

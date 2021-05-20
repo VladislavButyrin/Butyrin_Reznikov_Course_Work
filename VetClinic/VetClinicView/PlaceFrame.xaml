@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VetClinicView"
         mc:Ignorable="d"
-        Title="Услуга" Height="250.127" Width="650" Loaded="PlaceFrame_Load">
+        Title="Местоо для посещения" Height="250.127" Width="650" Loaded="PlaceFrame_Load">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="175"></RowDefinition>
@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" Margin="5,5,5,5" Padding="3,3,3,3"  BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <Label VerticalAlignment="Top" HorizontalAlignment="Center" TextBlock.FontWeight="Bold">Данные по услуге:</Label>
+                    <Label VerticalAlignment="Top" HorizontalAlignment="Center" TextBlock.FontWeight="Bold">Данные по месту:</Label>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="15"></RowDefinition>

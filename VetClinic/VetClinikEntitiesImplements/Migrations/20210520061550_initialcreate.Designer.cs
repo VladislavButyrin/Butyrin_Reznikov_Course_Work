@@ -10,7 +10,7 @@ using VetClinikEntitiesImplements;
 namespace VetClinikModels.Migrations
 {
     [DbContext(typeof(VetClinicDataBase))]
-    [Migration("20210520060024_initialcreate")]
+    [Migration("20210520061550_initialcreate")]
     partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

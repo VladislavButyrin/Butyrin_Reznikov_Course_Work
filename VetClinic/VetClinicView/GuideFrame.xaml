@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VetClinicView"
         mc:Ignorable="d"
-        Title="Лекарство" Height="250.127" Width="650" Loaded="GuideFrame_Load">
+        Title="Гид" Height="250.127" Width="650" Loaded="GuideFrame_Load">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="175"></RowDefinition>
@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" Margin="5,5,5,5" Padding="3,3,3,3"  BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <Label VerticalAlignment="Top" HorizontalAlignment="Center" TextBlock.FontWeight="Bold">Данные по лекарству:</Label>
+                    <Label VerticalAlignment="Top" HorizontalAlignment="Center" TextBlock.FontWeight="Bold">Данные по гиду:</Label>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>

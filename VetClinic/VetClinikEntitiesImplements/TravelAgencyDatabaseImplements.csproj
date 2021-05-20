@@ -168,9 +168,9 @@
     <Compile Include="Implements\PlaceStorage.cs" />
     <Compile Include="Implements\OrganizatorStorage.cs" />
     <Compile Include="Implements\GroupStorage.cs" />
-    <Compile Include="Migrations\20210520060024_initialcreate.cs" />
-    <Compile Include="Migrations\20210520060024_initialcreate.designer.cs">
-      <DependentUpon>20210520060024_initialcreate.cs</DependentUpon>
+    <Compile Include="Migrations\20210520061550_initialcreate.cs" />
+    <Compile Include="Migrations\20210520061550_initialcreate.designer.cs">
+      <DependentUpon>20210520061550_initialcreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\VetClinicDataBaseModelSnapshot.cs" />
     <Compile Include="Modules\Tour.cs" />

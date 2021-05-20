@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VetClinicView"
         mc:Ignorable="d"
-        Title="Медикамент" Height="132.487" Width="450.508" Loaded="TripFrame_Loaded">
+        Title="Поездка" Height="132.487" Width="450.508" Loaded="TripFrame_Loaded">
     <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="100"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Margin="10,10,10,10" Padding="3,3,3,3" VerticalAlignment="Center">Медикамент:</Label>
+            <Label Grid.Column="0" Margin="10,10,10,10" Padding="3,3,3,3" VerticalAlignment="Center" Content="Название"/>
             <TextBox x:Name="NameTextBox" Grid.Column="1" Margin="10,10,10,10" Padding="3,3,3,3" VerticalAlignment="Center"></TextBox>
         </Grid>
         <Grid Grid.Row="1" RenderTransformOrigin="0.24,0.487" Grid.ColumnSpan="2">

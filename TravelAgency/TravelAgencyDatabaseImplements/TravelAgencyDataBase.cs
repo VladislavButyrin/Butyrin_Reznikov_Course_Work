@@ -27,5 +27,6 @@ namespace TravelAgencyDatabaseImplements
         public virtual DbSet<User> Users { set; get; }
         public virtual DbSet<Group> Groups { set; get; }
         public virtual DbSet<GroupPlace> GroupsPlaces { set; get; }
-    }
+        public virtual DbSet<MessageInfo> MessageInfos { set; get; }
+       }
 }

@@ -17,7 +17,7 @@ namespace TravelAgencyImplementerView
         private string Username;
         private int UserId;
         private bool reportWindow = false;
-        private List<string> ToursGroups;
+        private Dictionary<int,string> ToursGroups;
         private List<string> GroupsPlaces;
         public Group(GroupLogic _group_logic, TourLogic _tour_logic)
         {
@@ -38,7 +38,7 @@ namespace TravelAgencyImplementerView
                 CanSelectedToursListBox.Items.Clear();
                 foreach (var tour in tour_logic.Read(null))
                 {
-                    if (ToursGroups.Where(rec => rec == tour.TourName).ToList().Count == 0)
+                    if (ToursGroups.Values.ToList().Where(rec => rec == tour.TourName).ToList().Count == 0)
                     {
                         CanSelectedToursListBox.Items.Add(tour);
                     }
@@ -83,7 +83,8 @@ namespace TravelAgencyImplementerView
         {
             if (CanSelectedToursListBox.SelectedItems.Count == 1)
             {
-                ToursGroups.Add(((TourViewModel)CanSelectedToursListBox.SelectedItem).TourName);
+                ToursGroups.Add((int)((TourViewModel)CanSelectedToursListBox.SelectedItem).Id,
+                    ((TourViewModel)CanSelectedToursListBox.SelectedItem).TourName);
                 LoadData();
             }
         }
@@ -91,7 +92,7 @@ namespace TravelAgencyImplementerView
         {
             if (SelectedToursListBox.SelectedItems.Count == 1)
             {
-                ToursGroups.Remove(ToursGroups.Where(rec => rec == (string)SelectedToursListBox.SelectedItem).ToList()[0]);
+                ToursGroups.Remove(ToursGroups.FirstOrDefault(rec => rec.Value == (string)SelectedToursListBox.SelectedItem).Key);
                 LoadData();
             }
         }
@@ -138,7 +139,7 @@ namespace TravelAgencyImplementerView
                     GroupViewModel view = group_logic.Read(new GroupBindingModel { Id = id.Value })?[0];
                     DateGroupDatePicker.SelectedDate = view.DateGroup;
                     ToursGroups = view.ToursGroups;
-                    GroupsPlaces = view.GroupsPlaces;
+                    GroupsPlaces = view.GroupsPlaces.Values.ToList();
                     Username = view.Username;
                     UserId = view.UserId;
                 }
@@ -149,7 +150,7 @@ namespace TravelAgencyImplementerView
             }
             else
             {
-                ToursGroups = new List<string>();
+                ToursGroups = new Dictionary<int, string>();
                 GroupsPlaces = new List<string>();
             }
             LoadData();

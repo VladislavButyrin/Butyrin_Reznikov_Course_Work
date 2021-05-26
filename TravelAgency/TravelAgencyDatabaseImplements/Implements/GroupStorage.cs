@@ -28,8 +28,8 @@ namespace TravelAgencyDatabaseImplements.Implements
                     UserId = rec.UserId,
                     Username = rec.User.Fullname,
                     DateGroup = rec.DateGroup,
-                    ToursGroups = rec.ToursGroups.Select(recAN => recAN.Tour?.TourName).ToList(),
-                    GroupsPlaces = rec.GroupPlaces.Select(recSN => recSN.Place?.PlaceName).ToList()
+                    ToursGroups=rec.ToursGroups.ToDictionary(recrec=>recrec.TourId, recrec=>recrec.Tour.TourName),
+                    GroupsPlaces = rec.GroupPlaces.ToDictionary(recrec=>recrec.PlaceId,recrec=>recrec.Place.PlaceName)
                 })
                 .ToList();
             }
@@ -58,8 +58,8 @@ namespace TravelAgencyDatabaseImplements.Implements
                    UserId = rec.UserId,
                    Username = rec.User.Fullname,
                    DateGroup = rec.DateGroup,
-                   ToursGroups = rec.ToursGroups.Select(recAN => recAN.Tour?.TourName).ToList(),
-                   GroupsPlaces = rec.GroupPlaces.Select(recSN => recSN.Place?.PlaceName).ToList()
+                   ToursGroups = rec.ToursGroups.ToDictionary(recrec => recrec.TourId, recrec => recrec.Tour.TourName),
+                   GroupsPlaces = rec.GroupPlaces.ToDictionary(recrec => recrec.PlaceId, recrec => recrec.Place.PlaceName)
                })
                .ToList();
             }
@@ -86,8 +86,8 @@ namespace TravelAgencyDatabaseImplements.Implements
                     UserId = group.UserId,
                     Username = group.User.Fullname,
                     DateGroup = group.DateGroup,
-                    ToursGroups = group.ToursGroups.Select(recAN => recAN.Tour?.TourName).ToList(),
-                    GroupsPlaces = group.GroupPlaces.Select(recSN => recSN.Place?.PlaceName).ToList()
+                    ToursGroups = group.ToursGroups.ToDictionary(recrec => recrec.TourId, recrec => recrec.Tour.TourName),
+                    GroupsPlaces = group.GroupPlaces.ToDictionary(recrec => recrec.PlaceId, recrec => recrec.Place.PlaceName)
                 } :
                null;
             }
@@ -168,12 +168,13 @@ namespace TravelAgencyDatabaseImplements.Implements
             {
                 var groupTours = context.ToursGroups.Where(rec => rec.GroupId == model.Id.Value).ToList();
                 // удалили те, которых нет в модели
-                context.ToursGroups.RemoveRange(groupTours.Where(rec => !model.ToursGroups.Contains(context.Tours.FirstOrDefault(recAN => recAN.Id == rec.TourId).TourName)));
+                context.ToursGroups.RemoveRange(groupTours.Where(rec => !model.ToursGroups
+                .ContainsValue(context.Tours.FirstOrDefault(recAN => recAN.Id == rec.TourId).TourName)));
                 context.SaveChanges();
                 // обновили количество у существующих записей
                 foreach (var updateTour in groupTours)
                 {
-                    model.ToursGroups.Remove(updateTour.Tour.TourName);
+                    model.ToursGroups.Remove((int)updateTour.Tour.Id);
                 }
                 context.SaveChanges();
             }
@@ -182,7 +183,7 @@ namespace TravelAgencyDatabaseImplements.Implements
             {
                 context.ToursGroups.Add(new TourGroup
                 {
-                    TourId = (int)context.Tours.FirstOrDefault(rec => rec.TourName == av).Id,
+                    TourId = (int)context.Tours.FirstOrDefault(rec => rec.TourName == av.Value).Id,
                     GroupId = group.Id
                 });
                 context.SaveChanges();

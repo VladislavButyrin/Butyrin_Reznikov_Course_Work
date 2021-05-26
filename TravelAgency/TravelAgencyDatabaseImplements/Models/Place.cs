@@ -12,7 +12,8 @@ namespace TravelAgencyDatabaseImplements.Models
         [Required]
         public string PlaceName { get; set; }
         [Required]
-        public int Cost { get; set; }
+        public string Adress { get; set; }
+
         [ForeignKey("PlaceId")]
         public virtual List<TripPlace> TripsPlaces { get; set; }
         [ForeignKey("PlaceId")]

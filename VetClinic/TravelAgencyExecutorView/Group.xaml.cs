@@ -11,13 +11,13 @@ namespace TravelAgencyExecutorView
     public partial class Group : Window
     {
         public int Id { set { id = value; } }
-        private readonly GroupBusinessLogic group_logic;
-        private readonly TourBusinessLogic tour_logic;
+        private readonly GroupLogic group_logic;
+        private readonly TourLogic tour_logic;
         private int? id;
         private string Username;
         private List<string> ToursGroups;
         private List<string> GroupsPlaces;
-        public Group(GroupBusinessLogic _group_logic, TourBusinessLogic _tour_logic)
+        public Group(GroupLogic _group_logic, TourLogic _tour_logic)
         {
             InitializeComponent();
             group_logic = _group_logic;

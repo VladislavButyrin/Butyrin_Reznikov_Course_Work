@@ -235,8 +235,14 @@
     <Compile Include="DiagramsByVisitsAndPurchases.xaml.cs">
       <DependentUpon>DiagramsByVisitsAndPurchases.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListServices.xaml.cs">
+      <DependentUpon>ListServices.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GudieBinding.xaml.cs">
+      <DependentUpon>GudieBinding.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalData.xaml.cs">
       <DependentUpon>PersonalData.xaml</DependentUpon>
@@ -293,7 +299,15 @@
       <DependentUpon>FirstWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ListServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GudieBinding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

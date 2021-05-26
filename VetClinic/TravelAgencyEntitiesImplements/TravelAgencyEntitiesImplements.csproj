@@ -161,7 +161,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implements\TourStorage.cs" />
     <Compile Include="Implements\TripStorage.cs" />
     <Compile Include="Implements\GuideStorage.cs" />
     <Compile Include="Implements\MessageInfoStorage.cs" />

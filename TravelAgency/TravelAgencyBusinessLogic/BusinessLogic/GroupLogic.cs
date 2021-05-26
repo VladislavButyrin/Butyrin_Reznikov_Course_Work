@@ -56,5 +56,29 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             }
             _groupStorage.Delete(model);
         }
+
+        public void AddPlace(AddPlaceToGroupBindingModel model)
+        {
+            GroupViewModel group = _groupStorage.GetElement(new GroupBindingModel
+            {
+                Id = model.OrganizatorGroupId
+            });
+            if (group.GroupsPlaces == null)
+            {
+                group.GroupsPlaces = new Dictionary<int, string>();
+            }
+            if (group.GroupsPlaces.ContainsKey((int)model.Place.Id))
+            {
+                throw new Exception("Невозможно привязать услугу");
+            }
+            group.GroupsPlaces.Add((int)model.Place.Id, model.Place.PlaceName);
+            _groupStorage.Update(new GroupBindingModel
+            {
+                Id = group.Id,
+                DateGroup = group.DateGroup,
+                GroupsPlaces = group.GroupsPlaces,
+                ToursGroups = group.ToursGroups,
+            });
+        }
     }
 }

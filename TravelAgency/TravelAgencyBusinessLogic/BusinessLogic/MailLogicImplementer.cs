@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgencyBusinessLogic.BusinessLogic
 {
-    public class MailLogic
+    public class MailLogicImplementer
     {
         private static string smtpHost;
         private static int smtpPort;

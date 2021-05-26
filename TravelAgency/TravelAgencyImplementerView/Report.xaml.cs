@@ -12,10 +12,10 @@ namespace TravelAgencyImplementerView
     {
         [Dependency]
         public IUnityContainer Container { get; set; }
-        private readonly ReportLogic report_logic;
+        private readonly ReportLogicImplementer report_logic;
         private readonly UserLogic user_logic;
         private readonly string filename = "E:\\Report.pdf";
-        public Report(ReportLogic _report_logic, UserLogic _user_logic)
+        public Report(ReportLogicImplementer _report_logic, UserLogic _user_logic)
         {
             InitializeComponent();
             report_logic = _report_logic;
@@ -51,7 +51,7 @@ namespace TravelAgencyImplementerView
             }
             try
             {
-                var report = report_logic.GetToursExcursionsGroups(new ReportBindingModel
+                var report = report_logic.GetToursExcursionsGroups(new ReportBindingModelImplementer
                 {
                     DateFrom = dataFromDataPicker.SelectedDate,
                     DateTo = dataToDataPicker.SelectedDate,
@@ -83,7 +83,7 @@ namespace TravelAgencyImplementerView
             }
             try
             {
-                report_logic.SaveToursGroupsExcursionsToPDFFile(new ReportBindingModel
+                report_logic.SaveToursGroupsExcursionsToPDFFile(new ReportBindingModelImplementer
                 {
                     FileName = filename,
                     DateFrom = dataFromDataPicker.SelectedDate,

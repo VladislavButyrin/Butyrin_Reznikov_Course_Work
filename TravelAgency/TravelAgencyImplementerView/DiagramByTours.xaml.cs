@@ -78,7 +78,7 @@ namespace TravelAgencyImplementerView
             }
             try
             {
-                var statistics = statisticsLogic.GetTours(new StatisticsBindingModel
+                var statistics = statisticsLogic.GetTours(new StatisticsBindingModelImplementer
                 {
                     DateFrom = dataFromDataPicker.SelectedDate,
                     DateTo = dataToDataPicker.SelectedDate

@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace TravelAgencyBusinessLogic.BindingModels
 {
     public class GuideBindingModel
@@ -6,6 +8,6 @@ namespace TravelAgencyBusinessLogic.BindingModels
         public int? Id { get; set; }
         public string GuideName { get; set; }
         public int Cost { get; set; }
-        public int Count { get; set; }
+        public Dictionary<int, string> Trips { get; set; }
     }
 }

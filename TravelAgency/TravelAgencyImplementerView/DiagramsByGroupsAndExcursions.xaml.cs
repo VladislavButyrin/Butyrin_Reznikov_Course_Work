@@ -85,7 +85,7 @@ namespace TravelAgencyImplementerView
             {
                 if (SelectedDiagramComboBox.Text == "Покупки")
                 {
-                    var statistics = statisticsLogic.GetExcursions(new StatisticsBindingModel
+                    var statistics = statisticsLogic.GetExcursions(new StatisticsBindingModelImplementer
                     {
                         DateFrom = dataFromDataPicker.SelectedDate,
                         DateTo = dataToDataPicker.SelectedDate
@@ -100,7 +100,7 @@ namespace TravelAgencyImplementerView
                 }
                 else
                 {
-                    var statistics = statisticsLogic.GetGroups(new StatisticsBindingModel
+                    var statistics = statisticsLogic.GetGroups(new StatisticsBindingModelImplementer
                     {
                         DateFrom = dataFromDataPicker.SelectedDate,
                         DateTo = dataToDataPicker.SelectedDate

@@ -17,7 +17,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             _excursionStorage = excursionStorage;
             _tourStorage = tourStorage;
         }
-        public List<StatisticsByToursViewModel> GetTours(StatisticsBindingModel model)
+        public List<StatisticsByToursViewModel> GetTours(StatisticsBindingModelImplementer model)
         {
             var groups = _groupStorage.GetFilteredList(new GroupBindingModel
             {
@@ -32,7 +32,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
                 var counter = 0;
                 foreach (var group in groups)
                 {
-                    if (!group.ToursGroups.Contains(tour.TourName))
+                    if (!group.ToursGroups.ContainsValue(tour.TourName))
                     {
                         continue;
                     }
@@ -48,7 +48,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             }
             return list;
         }
-        public List<StatisticsByGroupsAndExcursionsViewModel> GetGroups(StatisticsBindingModel model)
+        public List<StatisticsByGroupsAndExcursionsViewModel> GetGroups(StatisticsBindingModelImplementer model)
         {
             var groups = _groupStorage.GetFilteredList(new GroupBindingModel
             {
@@ -79,7 +79,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             }
             return list;
         }
-        public List<StatisticsByGroupsAndExcursionsViewModel> GetExcursions(StatisticsBindingModel model)
+        public List<StatisticsByGroupsAndExcursionsViewModel> GetExcursions(StatisticsBindingModelImplementer model)
         {
             var excursions = _excursionStorage.GetFilteredList(new ExcursionBindingModel
             {

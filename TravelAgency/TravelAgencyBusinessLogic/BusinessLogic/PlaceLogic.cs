@@ -19,6 +19,10 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             {
                 return _placeStorage.GetFullList();
             }
+            if (model.OrganizatorId.HasValue)
+            {
+                return _placeStorage.GetFilteredList(model);
+            }
             if (model.Id.HasValue)
             {
                 return new List<PlaceViewModel> { _placeStorage.GetElement(model) };
@@ -33,7 +37,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             });
             if (element != null && element.Id != model.Id)
             {
-                throw new Exception("Уже есть лекарство с таким названием");
+                throw new Exception("Уже есть место с таким названием");
             }
             if (model.Id.HasValue)
             {
@@ -52,7 +56,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             });
             if (element == null)
             {
-                throw new Exception("Лекарство не найдено");
+                throw new Exception("Место не найдено");
             }
             _placeStorage.Delete(model);
         }

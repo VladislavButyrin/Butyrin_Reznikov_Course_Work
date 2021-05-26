@@ -33,7 +33,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             });
             if (element != null && element.Id != model.Id)
             {
-                throw new Exception("Уже есть лекарство с таким названием");
+                throw new Exception("Уже есть гид с таким названием");
             }
             if (model.Id.HasValue)
             {
@@ -52,7 +52,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             });
             if (element == null)
             {
-                throw new Exception("Лекарство не найдено");
+                throw new Exception("гид не найдено");
             }
             _guideStorage.Delete(model);
         }

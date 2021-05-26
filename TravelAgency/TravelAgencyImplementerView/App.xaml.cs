@@ -36,7 +36,7 @@ namespace TravelAgencyImplementerView
             currentContainer.RegisterType<GuideLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<GroupLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<UserLogic>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<ReportLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ReportLogicImplementer>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<PlaceLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<StatisticsLogic>(new HierarchicalLifetimeManager());
 
@@ -44,7 +44,7 @@ namespace TravelAgencyImplementerView
         }
         private void SetMailConfig()
         {
-            MailLogic.MailConfig(new MailConfig
+            MailLogicImplementer.MailConfig(new MailConfig
             {
                 SmtpHost = ConfigurationManager.AppSettings["SmtpHost"],
                 SmtpPort = Convert.ToInt32(ConfigurationManager.AppSettings["SmtpPort"]),

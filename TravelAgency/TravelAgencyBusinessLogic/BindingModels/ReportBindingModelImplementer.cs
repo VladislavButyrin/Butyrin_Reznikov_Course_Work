@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TravelAgencyBusinessLogic.BindingModels
 {
-    public class ReportBindingModel
+    public class ReportBindingModelImplementer
     {
         public string FileName { get; set; }
         public int UserId { get; set; }

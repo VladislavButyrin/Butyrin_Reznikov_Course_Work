@@ -9,20 +9,20 @@ using System.Linq;
 
 namespace TravelAgencyBusinessLogic.BusinessLogic
 {
-    public class ReportLogic
+    public class ReportLogicImplementer
     {
         private readonly IGroupStorage _groupStorage;
         private readonly IExcursionStorage _excursionStorage;
         private readonly ITourStorage _tourStorage;
         private readonly IUserStorage _userStorage;
-        public ReportLogic(IGroupStorage groupStorage, IExcursionStorage excursionStorage, ITourStorage tourStorage, IUserStorage userStorage)
+        public ReportLogicImplementer(IGroupStorage groupStorage, IExcursionStorage excursionStorage, ITourStorage tourStorage, IUserStorage userStorage)
         {
             _groupStorage = groupStorage;
             _excursionStorage = excursionStorage;
             _tourStorage = tourStorage;
             _userStorage = userStorage;
         }
-        public List<ReportViewModel> GetPlaces(ReportBindingModel model)
+        public List<ReportViewModel> GetPlaces(ReportBindingModelImplementer model)
         {
             var groups = _groupStorage.GetFullList();
             var list = new List<ReportViewModel>();
@@ -31,11 +31,11 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
                 var places = new List<string>();
                 foreach(var group in groups)
                 {
-                    if (!group.ToursGroups.Contains(tour))
+                    if (!group.ToursGroups.ContainsValue(tour))
                     {
                         continue;
                     }
-                    places.AddRange(group.GroupsPlaces);
+                    places.AddRange(group.GroupsPlaces.Values.ToList());
                 }
                 var readyListPlaces = new List<string>();
                 var g = places.GroupBy(x => x);
@@ -52,7 +52,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             }
             return list;
         }
-        public List<ReportToursGroupsExcursionsViewModel> GetToursExcursionsGroups(ReportBindingModel model)
+        public List<ReportToursGroupsExcursionsViewModel> GetToursExcursionsGroups(ReportBindingModelImplementer model)
         {
             var groups = _groupStorage.GetFilteredList(new GroupBindingModel
             {
@@ -76,7 +76,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
                 List<int> listGroupId = new List<int>();
                 foreach (var group in groups)
                 {
-                    if (group.ToursGroups.Contains(tour.TourName))
+                    if (group.ToursGroups.ContainsValue(tour.TourName))
                     {
                         selectedGroups.Add($"Дата: {group.DateGroup.ToShortDateString()}  —  Кол-во услуг: {group.GroupsPlaces.Count}");
                         listGroupId.Add(group.Id);
@@ -114,7 +114,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             }
             return list;
         }
-        public void SavePlacesToWordFile(ReportBindingModel model)
+        public void SavePlacesToWordFile(ReportBindingModelImplementer model)
         {
             SaveToWord.CreateDoc(new WordExelInfo
             {
@@ -123,7 +123,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
                 Places = GetPlaces(model),
             });
         }
-        public void SaveToursToExcelFile(ReportBindingModel model)
+        public void SaveToursToExcelFile(ReportBindingModelImplementer model)
         {
             SaveToExcel.CreateDoc(new WordExelInfo
             {
@@ -133,7 +133,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             });
         }
         [Obsolete]
-        public void SaveToursGroupsExcursionsToPDFFile(ReportBindingModel model)
+        public void SaveToursGroupsExcursionsToPDFFile(ReportBindingModelImplementer model)
         {
             SaveToPdf.CreateDoc(new PdfInfo
             {
@@ -144,7 +144,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
                 ToursGroupsExcursions = GetToursExcursionsGroups(model),
                 Username = _userStorage.GetElement(new UserBindingModel { Id = model.UserId })?.Fullname,
             });
-            MailLogic.MailSendAsync(new MailSendInfo
+            MailLogicImplementer.MailSendAsync(new MailSendInfo
             {
                 MailAddress = model.LoginCurrentUserInSystem,
                 Subject = $"Новый отчет",

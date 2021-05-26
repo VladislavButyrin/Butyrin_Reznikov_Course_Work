@@ -1,0 +1,29 @@
+﻿<Window x:Class="TravelAgencyView.TripsFrame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelAgencyView"
+        mc:Ignorable="d"
+        Title="Поездки" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="108.217"></ColumnDefinition>
+            <ColumnDefinition Width="491.783"/>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Margin="5,5,5,5" Padding="3,3,3,3"  BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2">
+            <DataGrid x:Name="dataGridView" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Path=TripName}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <StackPanel Grid.Column="2" Orientation="Vertical">
+            <Button x:Name="AddButton" Margin="10,10,10,10" Padding="3,3,3,3" Click="AddButton_Click">Добавить</Button>
+            <Button x:Name="ChangeButton" Margin="10,10,10,10" Padding="3,3,3,3" Click="ChangeButton_Click">Изменить</Button>
+            <Button x:Name="DeleteButton" Margin="10,10,10,10" Padding="3,3,3,3" Click="DeleteButton_Click">Удалить</Button>
+            <Button x:Name="UpdateButton" Margin="10,10,10,10" Padding="3,3,3,3" Click="UpdateButton_Click">Обновить</Button>
+        </StackPanel>
+    </Grid>
+</Window>

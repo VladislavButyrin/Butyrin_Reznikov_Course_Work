@@ -8,10 +8,10 @@ namespace TravelAgencyImplementerView
 {
     public partial class ListPlaces : Window
     {
-        private readonly ReportLogic report_logic;
+        private readonly ReportLogicImplementer report_logic;
         private readonly TourLogic tour_logic;
         private List<string> Places;
-        public ListPlaces(ReportLogic _report_logic, TourLogic _tour_logic)
+        public ListPlaces(ReportLogicImplementer _report_logic, TourLogic _tour_logic)
         {
             InitializeComponent();
             report_logic = _report_logic;
@@ -46,7 +46,7 @@ namespace TravelAgencyImplementerView
                     {
                         ToursName.Add(tourName.ToString());
                     }
-                    report_logic.SavePlacesToWordFile(new ReportBindingModel { FileName = dialog.FileName, ToursName = ToursName });
+                    report_logic.SavePlacesToWordFile(new ReportBindingModelImplementer { FileName = dialog.FileName, ToursName = ToursName });
                     MessageBox.Show("Файл со списком услуг успешно создан", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -62,7 +62,7 @@ namespace TravelAgencyImplementerView
                     {
                         ToursName.Add(tourName.ToString());
                     }
-                    report_logic.SaveToursToExcelFile(new ReportBindingModel { FileName = dialog.FileName, ToursName = ToursName });
+                    report_logic.SaveToursToExcelFile(new ReportBindingModelImplementer { FileName = dialog.FileName, ToursName = ToursName });
                     MessageBox.Show("Файл со списком услуг успешно создан", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }

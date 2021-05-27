@@ -10,5 +10,8 @@ namespace TravelAgencyBusinessLogic.ViewModels
         public string GuideName { get; set; }
         public int Cost { get; set; }
         public Dictionary<int, string> Trips { get; set; }
+        public override string ToString() {
+            return GuideName;
+        }
     }
 }

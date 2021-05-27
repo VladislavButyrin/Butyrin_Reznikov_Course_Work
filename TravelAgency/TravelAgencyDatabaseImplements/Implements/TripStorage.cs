@@ -43,7 +43,8 @@ namespace TravelAgencyDatabaseImplements.Implements
                 new TripViewModel
                 {
                     Id = trip.Id,
-                    TripName = trip.TripName
+                    TripName = trip.TripName,
+                    Description=trip.Description
                 } :
                null;
             }
@@ -62,7 +63,8 @@ namespace TravelAgencyDatabaseImplements.Implements
                .Select(rec => new TripViewModel
                {
                    Id = rec.Id,
-                   TripName = rec.TripName
+                   TripName = rec.TripName,
+                   Description=rec.Description
                })
                 .ToList();
             }
@@ -76,7 +78,8 @@ namespace TravelAgencyDatabaseImplements.Implements
                 .Select(rec => new TripViewModel
                 {
                     Id = rec.Id,
-                    TripName = rec.TripName
+                    TripName = rec.TripName,
+                    Description=rec.Description
                 })
 .ToList();
             }
@@ -108,6 +111,7 @@ namespace TravelAgencyDatabaseImplements.Implements
         private Trip CreateModel(TripBindingModel model, Trip trip)
         {
             trip.TripName = model.TripName;
+            trip.Description = model.Description;
             return trip;
         }
     }

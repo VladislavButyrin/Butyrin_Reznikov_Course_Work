@@ -14,7 +14,7 @@ namespace TravelAgencyImplementerView
         public IUnityContainer Container { get; set; }
         private readonly ReportLogicImplementer report_logic;
         private readonly UserLogic user_logic;
-        private readonly string filename = "E:\\Report.pdf";
+        private readonly string filename = "D:\\Report.pdf";
         public Report(ReportLogicImplementer _report_logic, UserLogic _user_logic)
         {
             InitializeComponent();

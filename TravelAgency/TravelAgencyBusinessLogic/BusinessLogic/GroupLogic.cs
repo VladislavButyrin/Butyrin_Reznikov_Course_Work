@@ -59,25 +59,25 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
 
         public void AddPlace(AddPlaceToGroupBindingModel model)
         {
-            GroupViewModel group = _groupStorage.GetElement(new GroupBindingModel
+            GroupViewModel Group = _groupStorage.GetElement(new GroupBindingModel
             {
                 Id = model.OrganizatorGroupId
             });
-            if (group.GroupsPlaces == null)
+            if (Group.GroupsPlaces == null)
             {
-                group.GroupsPlaces = new Dictionary<int, string>();
+                Group.GroupsPlaces = new Dictionary<int, string>();
             }
-            if (group.GroupsPlaces.ContainsKey((int)model.Place.Id))
+            if (Group.GroupsPlaces.ContainsKey((int)model.Place.Id))
             {
                 throw new Exception("Невозможно привязать услугу");
             }
-            group.GroupsPlaces.Add((int)model.Place.Id, model.Place.PlaceName);
+            Group.GroupsPlaces.Add((int)model.Place.Id, model.Place.PlaceName);
             _groupStorage.Update(new GroupBindingModel
             {
-                Id = group.Id,
-                DateGroup = group.DateGroup,
-                GroupsPlaces = group.GroupsPlaces,
-                ToursGroups = group.ToursGroups,
+                Id = Group.Id,
+                DateGroup = Group.DateGroup,
+                GroupsPlaces = Group.GroupsPlaces,
+                ToursGroups = Group.ToursGroups,
             });
         }
     }

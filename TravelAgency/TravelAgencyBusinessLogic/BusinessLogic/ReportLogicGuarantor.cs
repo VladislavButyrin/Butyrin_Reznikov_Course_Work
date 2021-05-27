@@ -36,14 +36,14 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             var list = new List<ReportExcursionTripViewModel>();
             foreach (var excursion in excursions)
             {
-                bool have_trips = true;
+                bool have_trips = false;
                 foreach (int trip in model.Trips) 
                 {
                     foreach (var guide in excursion.GuidesExcursions)
                     {
-                        if (!guides.FirstOrDefault(rec => rec.Id == guide.Value.Item1).Trips.ContainsKey(trip))
+                        if (guides.FirstOrDefault(rec => rec.Id == guide.Value.Item1).Trips.ContainsKey(trip))
                         {
-                            have_trips = false;
+                            have_trips = true;
                         }
                     }
                 }

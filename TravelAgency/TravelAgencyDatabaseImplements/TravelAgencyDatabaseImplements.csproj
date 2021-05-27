@@ -30,8 +30,4 @@
     <ProjectReference Include="..\TravelAgencyBusinessLogic\TravelAgencyBusinessLogic.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

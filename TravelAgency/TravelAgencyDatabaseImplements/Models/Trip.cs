@@ -9,6 +9,8 @@ namespace TravelAgencyDatabaseImplements.Models
         public int Id { get; set; }
         [Required]
         public string TripName { get; set; }
+        [Required]
+        public string Description { set; get; }
         [ForeignKey("TripId")]
         public virtual List<TripGuide> TripsGuides { get; set; }
         [ForeignKey("TripId")]

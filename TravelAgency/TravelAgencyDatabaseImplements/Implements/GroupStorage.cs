@@ -28,8 +28,8 @@ namespace TravelAgencyDatabaseImplements.Implements
                     UserId = rec.UserId,
                     Username = rec.User.Fullname,
                     DateGroup = rec.DateGroup,
-                    ToursGroups=rec.ToursGroups.ToDictionary(recrec=>recrec.TourId, recrec=>recrec.Tour.TourName),
-                    GroupsPlaces = rec.GroupPlaces.ToDictionary(recrec=>recrec.PlaceId,recrec=>recrec.Place.PlaceName)
+                    ToursGroups = rec.ToursGroups.ToDictionary(recrec => recrec.TourId, recrec => recrec.Tour.TourName),
+                    GroupsPlaces = rec.GroupPlaces.ToDictionary(recrec => recrec.PlaceId, recrec => recrec.Place.PlaceName)
                 })
                 .ToList();
             }
@@ -132,8 +132,6 @@ namespace TravelAgencyDatabaseImplements.Implements
                         {
                             throw new Exception("Посещение не найдено");
                         }
-                        element.DateGroup = model.DateGroup;
-                        element.UserId = model.UserId;
                         CreateModel(model, element, context);
                         context.SaveChanges();
                         transaction.Commit();
@@ -167,14 +165,22 @@ namespace TravelAgencyDatabaseImplements.Implements
             if (model.Id.HasValue)
             {
                 var groupTours = context.ToursGroups.Where(rec => rec.GroupId == model.Id.Value).ToList();
+                var groupPlaces = context.GroupsPlaces.Where(rec => rec.GroupId == model.Id.Value).ToList();
                 // удалили те, которых нет в модели
                 context.ToursGroups.RemoveRange(groupTours.Where(rec => !model.ToursGroups
-                .ContainsValue(context.Tours.FirstOrDefault(recAN => recAN.Id == rec.TourId).TourName)));
+                .ContainsKey((int)context.Tours.FirstOrDefault(recAN => recAN.Id == rec.TourId).Id)).ToList());
+                context.SaveChanges();
+                // удалить услуги, которых нет в модели
+                context.GroupsPlaces.RemoveRange(groupPlaces.Where(rec => !model.GroupsPlaces.ContainsKey((int)context.Places.FirstOrDefault(recAN => recAN.Id == rec.PlaceId).Id)).ToList());
                 context.SaveChanges();
                 // обновили количество у существующих записей
                 foreach (var updateTour in groupTours)
                 {
                     model.ToursGroups.Remove((int)updateTour.Tour.Id);
+                }
+                foreach (var updatePlace in groupPlaces)
+                {
+                    model.GroupsPlaces.Remove((int)updatePlace.Place.Id);
                 }
                 context.SaveChanges();
             }
@@ -183,7 +189,16 @@ namespace TravelAgencyDatabaseImplements.Implements
             {
                 context.ToursGroups.Add(new TourGroup
                 {
-                    TourId = (int)context.Tours.FirstOrDefault(rec => rec.TourName == av.Value).Id,
+                    TourId = (int)context.Tours.FirstOrDefault(rec => rec.Id == av.Key).Id,
+                    GroupId = group.Id
+                });
+                context.SaveChanges();
+            }
+            foreach (var av in model.GroupsPlaces)
+            {
+                context.GroupsPlaces.Add(new GroupPlace
+                {
+                    PlaceId = (int)context.Places.FirstOrDefault(rec => rec.Id == av.Key).Id,
                     GroupId = group.Id
                 });
                 context.SaveChanges();

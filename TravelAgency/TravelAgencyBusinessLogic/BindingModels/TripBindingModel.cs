@@ -7,5 +7,6 @@
     {
         public int? Id { get; set; }
         public string TripName { get; set; }
+        public string Description { set; get; }
     }
 }

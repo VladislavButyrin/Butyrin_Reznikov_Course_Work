@@ -30,7 +30,7 @@ namespace TravelAgencyImplementerView
             try
             {
                 SelectedToursListBox.Items.Clear();
-                foreach (var currentTours in ToursGroups)
+                foreach (var currentTours in ToursGroups.Values.ToList())
                 {
                     SelectedToursListBox.Items.Add(currentTours);
                 }

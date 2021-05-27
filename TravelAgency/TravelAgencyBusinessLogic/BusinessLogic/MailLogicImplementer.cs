@@ -15,7 +15,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
         private static int smtpPort;
         private static string mailLogin;
         private static string mailPassword;
-        private static readonly string filename = "E:\\Report.pdf";
+        private static readonly string filename = "D:\\Report.pdf";
         public static void MailConfig(MailConfig config)
         {
             smtpHost = config.SmtpHost;

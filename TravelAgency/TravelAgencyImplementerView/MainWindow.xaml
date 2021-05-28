@@ -21,8 +21,5 @@
             <MenuItem x:Name="PersonalData" Header="Личные данные" Click="PersonalData_Click"/>
             <MenuItem x:Name="StatisticsItem" Foreground="Red" Header="Статистика" Click="StatisticsItem_Click"></MenuItem>
         </Menu>
-        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1" Background="Aqua">
-            <Image Source="Image/logo.png"></Image>
-        </Border>
     </Grid>
 </Window>

@@ -103,12 +103,12 @@ namespace TravelAgencyImplementerView
             if (dataGridView.CurrentCell != null && dataGridView.CurrentCell.Column != null && dataGridView.SelectedItem != null)
             {
                 var header = dataGridView.CurrentCell.Column.Header;
-                if (header.ToString() == "Имя животного")
+                if (header.ToString() == "Название тура")
                 {
                     dataGridView.UnselectAllCells();
                     return;
                 }
-                else if (header.ToString() == "Покупки")
+                else if (header.ToString() == "Экскурсии")
                 {
                     var form = Container.Resolve<Excursion>();
                     form.Id = ((ReportToursGroupsExcursionsViewModel)dataGridView.SelectedItem).ExcursionId;

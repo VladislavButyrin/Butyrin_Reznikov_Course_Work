@@ -33,7 +33,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             });
             if (element != null && element.Id != model.Id)
             {
-                throw new Exception("Уже есть животное с таким названием");
+                throw new Exception("Уже есть тур с таким названием");
             }
             if (model.Id.HasValue)
             {
@@ -52,7 +52,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             });
             if (element == null)
             {
-                throw new Exception("Животное не найдено");
+                throw new Exception("Тур не найден");
             }
             _tourStorage.Delete(model);
         }

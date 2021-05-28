@@ -34,7 +34,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             CreateRow(new PdfRowParameters
             {
                 Table = table,
-                Texts = new List<string> { "Имя животного", "Посещения", "Покупки" },
+                Texts = new List<string> { "Название тура", "Группа", "Экскурсия" },
                 Style = "NormalTitle",
                 ParagraphAlignment = ParagraphAlignment.Center
             });

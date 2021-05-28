@@ -47,7 +47,7 @@ namespace TravelAgencyImplementerView
                         ToursName.Add(tourName.ToString());
                     }
                     report_logic.SavePlacesToWordFile(new ReportBindingModelImplementer { FileName = dialog.FileName, ToursName = ToursName });
-                    MessageBox.Show("Файл со списком услуг успешно создан", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Файл со списком мест успешно создан", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -63,7 +63,7 @@ namespace TravelAgencyImplementerView
                         ToursName.Add(tourName.ToString());
                     }
                     report_logic.SaveToursToExcelFile(new ReportBindingModelImplementer { FileName = dialog.FileName, ToursName = ToursName });
-                    MessageBox.Show("Файл со списком услуг успешно создан", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Файл со списком мест успешно создан", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }

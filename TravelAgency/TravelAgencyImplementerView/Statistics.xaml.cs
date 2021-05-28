@@ -21,7 +21,7 @@ namespace TravelAgencyImplementerView
             }
             try
             {
-                if (SelectedStaticsComboBox.Text == "Животные")
+                if (SelectedStaticsComboBox.Text == "Туры")
                 {
                     var form = Container.Resolve<DiagramByTours>();
                     Close();

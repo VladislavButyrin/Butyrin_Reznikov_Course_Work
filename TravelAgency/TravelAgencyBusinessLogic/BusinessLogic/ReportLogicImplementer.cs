@@ -78,7 +78,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
                 {
                     if (group.ToursGroups.ContainsValue(tour.TourName))
                     {
-                        selectedGroups.Add($"Дата: {group.DateGroup.ToShortDateString()}  —  Кол-во услуг: {group.GroupsPlaces.Count}");
+                        selectedGroups.Add($"Дата: {group.DateGroup.ToShortDateString()}  —  Кол-во мест: {group.GroupsPlaces.Count}");
                         listGroupId.Add(group.Id);
                     }
                 }
@@ -86,7 +86,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
                 {
                     if (excursion.ToursExcursions.Contains(tour.TourName))
                     {
-                        selectedExcursions.Add($"Дата: {excursion.DatePayment.ToShortDateString()}  —  Кол-во лекарств: {excursion.GuidesExcursions.Count}  —  Сумма: {excursion.Sum.ToString("G", CultureInfo.InvariantCulture)} руб.");
+                        selectedExcursions.Add($"Дата: {excursion.DatePayment.ToShortDateString()}  —  Кол-во гидов: {excursion.GuidesExcursions.Count}  —  Сумма: {excursion.Sum.ToString("G", CultureInfo.InvariantCulture)} руб.");
                         listExcursionId.Add(excursion.Id);
                     }
                 }
@@ -119,7 +119,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             SaveToWord.CreateDoc(new WordExelInfo
             {
                 FileName = model.FileName,
-                Title = "Список услуг животных",
+                Title = "Список мест туров",
                 Places = GetPlaces(model),
             });
         }
@@ -128,7 +128,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
             SaveToExcel.CreateDoc(new WordExelInfo
             {
                 FileName = model.FileName,
-                Title = "Список услуг животных",
+                Title = "Список мест туров",
                 Places = GetPlaces(model),
             });
         }
@@ -140,7 +140,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
                 FileName = model.FileName,
                 DateFrom = (DateTime)model.DateFrom,
                 DateTo = (DateTime)model.DateTo,
-                Title = "Список животных, их покупок и посещений",
+                Title = "Список туров, экскурсий и групп",
                 ToursGroupsExcursions = GetToursExcursionsGroups(model),
                 Username = _userStorage.GetElement(new UserBindingModel { Id = model.UserId })?.Fullname,
             });

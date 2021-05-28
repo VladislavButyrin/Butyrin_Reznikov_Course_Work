@@ -36,7 +36,7 @@ namespace TravelAgencyImplementerView
             cartesianChart.AxisX.Clear();
             cartesianChart.AxisX.Add(new Axis()
             {
-                Title = "\nЖивотные",
+                Title = "\nТуры",
                 FontSize = 20,
                 Foreground = brush,
                 Labels = toursName
@@ -44,7 +44,7 @@ namespace TravelAgencyImplementerView
 
             LineSeries tourLine = new LineSeries
             {
-                Title = "Кол-во посещений: ",
+                Title = "Кол-во групп: ",
                 FontSize = 20,
                 Values = numberOfGroups
             };

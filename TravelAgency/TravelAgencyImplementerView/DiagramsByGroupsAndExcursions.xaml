@@ -29,8 +29,8 @@
                 <DatePicker x:Name="dataToDataPicker" Grid.Column="3" IsDropDownOpen="False" SelectedDateFormat="Short" Margin="10,10,10,10" Padding="3,3,3,3"></DatePicker>
                 <Label Grid.Column="4" VerticalAlignment="Center">Диаграмма:</Label>
                 <ComboBox x:Name="SelectedDiagramComboBox" Grid.Column="5" Margin="10,13,10,13">
-                    <ComboBoxItem>Посещения</ComboBoxItem>
-                    <ComboBoxItem>Покупки</ComboBoxItem>
+                    <ComboBoxItem>Группы</ComboBoxItem>
+                    <ComboBoxItem>Экскурсии</ComboBoxItem>
                 </ComboBox>
                 <Button x:Name="ButtonShow" Grid.Column="6" Margin="10,10,10,10" Padding="3,3,3,3" Click="ButtonShow_Click">Сформировать</Button>
             </Grid>
